@@ -2,17 +2,13 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
->
-
-<meta name="theme-color" content="#080a16">
+<meta name="theme-color" content="#080a0f">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-<title>🌈 O Mundo da Lívia & Ana ❤️</title>
+<title>O Mundo da Lívia & Ana ❤️</title>
 
 <style>
 *{
@@ -27,400 +23,275 @@ html{
 
 body{
     min-height:100vh;
-    font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Roboto,
-        Arial,
-        sans-serif;
-
+    font-family:Arial,Helvetica,sans-serif;
     color:#fff;
-
     background:
-        radial-gradient(circle at 20% 10%,rgba(129,92,255,.25),transparent 30%),
-        radial-gradient(circle at 80% 20%,rgba(255,105,180,.18),transparent 30%),
-        radial-gradient(circle at 50% 100%,rgba(0,220,255,.12),transparent 35%),
-        #080a16;
-
+        radial-gradient(circle at 20% 10%,rgba(255,105,180,.20),transparent 28%),
+        radial-gradient(circle at 80% 20%,rgba(100,150,255,.18),transparent 30%),
+        radial-gradient(circle at 50% 90%,rgba(150,80,255,.18),transparent 35%),
+        #080a0f;
     overflow-x:hidden;
 }
 
-body::before{
-    content:"";
+.estrelas{
     position:fixed;
     inset:0;
     pointer-events:none;
-
-    background-image:
-        radial-gradient(circle,rgba(255,255,255,.9) 1px,transparent 1px),
-        radial-gradient(circle,rgba(255,255,255,.5) 1px,transparent 1px);
-
-    background-size:90px 90px,140px 140px;
-    background-position:20px 30px,70px 90px;
-
-    opacity:.22;
-    animation:stars 20s linear infinite;
+    z-index:0;
+    overflow:hidden;
 }
 
-@keyframes stars{
-    from{transform:translateY(0)}
-    to{transform:translateY(-90px)}
+.estrela{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:#fff;
+    border-radius:50%;
+    opacity:.7;
+    animation:pulsar 3s infinite ease-in-out;
 }
 
-button,
-a{
-    -webkit-tap-highlight-color:transparent;
-}
-
-button{
-    font-family:inherit;
+@keyframes pulsar{
+    0%,100%{
+        opacity:.25;
+        transform:scale(.8);
+    }
+    50%{
+        opacity:1;
+        transform:scale(1.5);
+    }
 }
 
 .tela{
     display:none;
-    min-height:100vh;
-    padding:
-        calc(24px + env(safe-area-inset-top))
-        18px
-        calc(30px + env(safe-area-inset-bottom));
-
     position:relative;
-    z-index:1;
+    z-index:2;
+    min-height:100vh;
+    padding:25px 16px 45px;
 }
 
 .tela.ativa{
     display:block;
-    animation:entrar .35s ease;
-}
-
-@keyframes entrar{
-    from{
-        opacity:0;
-        transform:translateY(12px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
 }
 
 .container{
-    width:min(1050px,100%);
+    width:100%;
+    max-width:1050px;
     margin:auto;
-}
-
-h1,
-h2,
-h3{
-    line-height:1.15;
-}
-
-h1{
-    font-size:clamp(2rem,7vw,4rem);
-}
-
-h2{
-    font-size:clamp(1.6rem,6vw,2.6rem);
-}
-
-h3{
-    font-size:1.15rem;
-}
-
-p{
-    line-height:1.6;
-}
-
-.subtitulo{
-    margin-top:12px;
-    color:#d8d9ed;
-    font-size:1rem;
 }
 
 .topo{
     text-align:center;
-    margin:20px auto 28px;
+    padding:35px 10px 25px;
 }
 
-.topo .emoji{
-    font-size:3rem;
-    display:block;
-    margin-bottom:10px;
-    animation:flutuar 3s ease-in-out infinite;
+.topo h1{
+    font-size:clamp(2rem,7vw,4rem);
+    line-height:1.1;
+    margin-bottom:12px;
+    background:linear-gradient(
+        90deg,
+        #ff8bd8,
+        #fff,
+        #8bdcff,
+        #d89cff
+    );
+    -webkit-background-clip:text;
+    background-clip:text;
+    color:transparent;
 }
 
-@keyframes flutuar{
-    0%,100%{transform:translateY(0)}
-    50%{transform:translateY(-8px)}
+.topo p{
+    color:#d8d8e8;
+    font-size:1rem;
 }
 
 .status{
+    margin:20px auto;
     display:flex;
     justify-content:center;
-    gap:10px;
+    gap:12px;
     flex-wrap:wrap;
-    margin-top:18px;
 }
 
 .status span{
-    padding:8px 14px;
+    padding:9px 14px;
     border-radius:999px;
-
     background:rgba(255,255,255,.08);
     border:1px solid rgba(255,255,255,.12);
-
     backdrop-filter:blur(12px);
 }
 
-.grade{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:14px;
-}
-
-.portal{
+.painel{
+    background:rgba(255,255,255,.07);
     border:1px solid rgba(255,255,255,.12);
-    border-radius:25px;
-
-    padding:22px 16px;
-
-    color:#fff;
-    text-align:left;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.12),
-            rgba(255,255,255,.045)
-        );
-
-    box-shadow:
-        0 12px 40px rgba(0,0,0,.25),
-        inset 0 1px rgba(255,255,255,.08);
-
+    box-shadow:0 15px 50px rgba(0,0,0,.25);
     backdrop-filter:blur(18px);
+    -webkit-backdrop-filter:blur(18px);
+    border-radius:28px;
+    padding:20px;
+}
 
+.botao{
+    border:0;
+    border-radius:16px;
+    padding:13px 18px;
+    color:#fff;
+    font-weight:bold;
+    font-size:15px;
     cursor:pointer;
-
-    transition:
-        transform .2s ease,
-        border-color .2s ease,
-        background .2s ease;
+    background:linear-gradient(135deg,#7657ff,#a44dff);
+    box-shadow:0 8px 25px rgba(120,70,255,.25);
+    transition:.2s;
 }
 
-.portal:hover{
-    transform:translateY(-4px);
-    border-color:rgba(255,255,255,.28);
-    background:rgba(255,255,255,.14);
+.botao:hover{
+    transform:translateY(-2px);
 }
 
-.portal:active{
+.botao:active{
     transform:scale(.97);
 }
 
-.portal .icone{
-    font-size:2.4rem;
-    display:block;
-    margin-bottom:10px;
-}
-
-.portal strong{
-    display:block;
-    font-size:1.05rem;
-}
-
-.portal small{
-    display:block;
-    margin-top:5px;
-    color:#bfc1d5;
-}
-
-.portal.jogos{
-    grid-column:1/-1;
-    background:
-        linear-gradient(
-            135deg,
-            rgba(89,70,255,.22),
-            rgba(0,200,255,.10)
-        );
+.botao.rosa{
+    background:linear-gradient(135deg,#ff5fb1,#ff8bd8);
 }
 
 .voltar{
-    display:inline-flex;
-    align-items:center;
-    gap:7px;
-
-    border:0;
-    border-radius:999px;
-
-    padding:10px 16px;
-
-    color:#fff;
-    background:rgba(255,255,255,.1);
-
-    cursor:pointer;
     margin-bottom:20px;
 }
 
-.voltar:hover{
-    background:rgba(255,255,255,.16);
-}
-
-/* PAINÉIS */
-
-.painel{
-    background:rgba(255,255,255,.065);
-    border:1px solid rgba(255,255,255,.11);
-    border-radius:28px;
-    padding:20px;
-
-    box-shadow:
-        0 15px 50px rgba(0,0,0,.25),
-        inset 0 1px rgba(255,255,255,.06);
-
-    backdrop-filter:blur(18px);
-
-    margin-bottom:18px;
-}
-
-.painel-central{
-    text-align:center;
-}
-
-/* JOGOS */
-
-.jogos-grid{
+.portais{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:14px;
+    grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+    gap:15px;
+    margin-top:20px;
 }
 
-.jogo{
+.portal{
     min-height:130px;
     border:1px solid rgba(255,255,255,.12);
     border-radius:24px;
-
     background:rgba(255,255,255,.07);
-
     color:#fff;
-
-    padding:20px;
-
-    text-align:center;
-
     cursor:pointer;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    transition:.25s;
+    backdrop-filter:blur(14px);
+}
 
-    transition:.2s;
+.portal:hover{
+    transform:translateY(-5px);
+    background:rgba(255,255,255,.11);
+}
+
+.portal .emoji{
+    font-size:42px;
+}
+
+.portal strong{
+    font-size:16px;
+}
+
+.portal small{
+    color:#bbb;
+}
+
+.titulo{
+    text-align:center;
+    font-size:clamp(1.8rem,6vw,2.8rem);
+    margin:10px 0 8px;
+}
+
+.subtitulo{
+    text-align:center;
+    color:#c7c7d4;
+    margin-bottom:25px;
+}
+
+.jogos-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+    gap:15px;
+}
+
+.jogo{
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:25px;
+    padding:22px 15px;
+    background:rgba(255,255,255,.06);
+    color:#fff;
+    cursor:pointer;
+    text-align:center;
+    transition:.25s;
 }
 
 .jogo:hover{
     transform:translateY(-4px);
-    background:rgba(255,255,255,.12);
+    background:rgba(255,255,255,.11);
 }
 
-.jogo .emoji{
+.jogo .icone{
+    font-size:48px;
     display:block;
-    font-size:2.8rem;
     margin-bottom:10px;
 }
 
-.jogo small{
-    color:#c4c5d8;
-}
-
-/* MAPA */
-
 .mapa{
-    position:relative;
-
-    min-height:520px;
-
-    border-radius:32px;
-
-    padding:30px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(50,70,100,.45),
-            rgba(20,25,50,.65)
-        );
-
-    border:1px solid rgba(255,255,255,.1);
-
-    overflow:hidden;
-}
-
-.mapa::before{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:
-        radial-gradient(circle at 20% 20%,rgba(80,200,120,.18),transparent 25%),
-        radial-gradient(circle at 80% 80%,rgba(100,80,255,.2),transparent 25%);
-
-    pointer-events:none;
-}
-
-.mapa-grid{
-    position:relative;
-    z-index:1;
-
     display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:16px;
-}
-
-.local{
-    min-height:120px;
-
-    border:1px solid rgba(255,255,255,.15);
-    border-radius:24px;
-
-    background:rgba(255,255,255,.08);
-
-    color:#fff;
-
-    padding:18px;
-
-    cursor:pointer;
-
-    transition:.2s;
-}
-
-.local:hover{
-    transform:scale(1.02);
-    background:rgba(255,255,255,.13);
-}
-
-.local .emoji{
-    font-size:2.5rem;
-    display:block;
-    margin-bottom:8px;
-}
-
-/* FAMÍLIA */
-
-.familia-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
     gap:15px;
 }
 
-.familiar{
-    overflow:hidden;
+.local{
+    min-height:145px;
     border-radius:25px;
     border:1px solid rgba(255,255,255,.12);
-    background:rgba(255,255,255,.06);
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,.09),
+        rgba(255,255,255,.04)
+    );
+    color:#fff;
     cursor:pointer;
-    transition:.2s;
+    padding:20px;
+    transition:.25s;
+}
+
+.local:hover{
+    transform:scale(1.03);
+}
+
+.local .icone{
+    font-size:45px;
+    display:block;
+    margin-bottom:10px;
+}
+
+.familia-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+    gap:18px;
+}
+
+.familiar{
+    border:0;
+    background:rgba(255,255,255,.07);
+    border-radius:25px;
+    overflow:hidden;
+    color:#fff;
+    cursor:pointer;
+    border:1px solid rgba(255,255,255,.12);
+    transition:.25s;
 }
 
 .familiar:hover{
-    transform:translateY(-4px);
+    transform:translateY(-5px);
 }
 
 .familiar img{
@@ -430,88 +301,71 @@ p{
     display:block;
 }
 
-.familiar div{
-    padding:13px;
-    text-align:center;
-    font-weight:600;
+.familiar h3{
+    padding:14px;
 }
 
-/* FOTO MODAL */
-
-#modalFoto{
-    display:none;
-    position:fixed;
-    inset:0;
-
-    z-index:100;
-
-    background:rgba(0,0,0,.85);
-
-    align-items:center;
-    justify-content:center;
-
-    padding:20px;
-}
-
-#modalFoto.ativo{
-    display:flex;
-}
-
-.modal-foto-caixa{
-    width:min(600px,100%);
+.personagem{
     text-align:center;
 }
 
-#fotoGrande{
-    max-width:100%;
-    max-height:75vh;
-
+.personagem img{
+    width:min(100%,380px);
+    max-height:430px;
     object-fit:contain;
-
-    border-radius:24px;
-
-    box-shadow:0 20px 80px rgba(0,0,0,.6);
+    border-radius:25px;
+    margin:15px auto;
+    display:block;
 }
 
-#nomeFoto{
-    margin-top:14px;
-    font-size:1.3rem;
-    font-weight:700;
-}
-
-.fechar{
+.acoes{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:10px;
     margin-top:15px;
-
-    border:0;
-    border-radius:999px;
-
-    padding:10px 18px;
-
-    background:#fff;
-    color:#111;
-
-    cursor:pointer;
 }
 
-/* MEMÓRIA */
+.comodos{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+    gap:14px;
+}
 
-.memoria-status{
+.comodo{
+    min-height:130px;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:22px;
+    background:rgba(255,255,255,.06);
+    color:#fff;
+    cursor:pointer;
+    font-size:16px;
+    padding:15px;
+}
+
+.comodo span{
+    display:block;
+    font-size:42px;
+    margin-bottom:8px;
+}
+
+.memoria-info{
     display:flex;
     justify-content:center;
-    gap:12px;
+    gap:10px;
     flex-wrap:wrap;
     margin:15px 0;
 }
 
-.memoria-status span{
+.memoria-info span{
     background:rgba(255,255,255,.08);
-    padding:8px 14px;
-    border-radius:999px;
+    border-radius:12px;
+    padding:8px 13px;
 }
 
 .cartas{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(4,1fr);
     gap:10px;
     max-width:600px;
     margin:20px auto;
@@ -520,667 +374,357 @@ p{
 .carta{
     aspect-ratio:1;
     border:0;
-    background:transparent;
-    perspective:800px;
+    border-radius:15px;
+    background:linear-gradient(135deg,#6947d8,#a94fe5);
+    color:#fff;
     cursor:pointer;
-}
-
-.carta-interna{
-    width:100%;
-    height:100%;
     position:relative;
-
-    transition:transform .45s;
-
-    transform-style:preserve-3d;
+    overflow:hidden;
 }
 
-.carta.virada .carta-interna,
-.carta.encontrada .carta-interna{
-    transform:rotateY(180deg);
-}
-
-.carta-frente,
-.carta-verso{
+.carta .frente{
+    display:none;
     position:absolute;
     inset:0;
-
-    display:flex;
     align-items:center;
     justify-content:center;
-
-    border-radius:17px;
-
-    backface-visibility:hidden;
-
-    border:1px solid rgba(255,255,255,.15);
+    background:#151722;
 }
 
-.carta-frente{
-    background:
-        linear-gradient(
-            135deg,
-            #5640c9,
-            #252d7c
-        );
-
-    font-size:2rem;
+.carta.aberta .frente,
+.carta.encontrada .frente{
+    display:flex;
 }
 
-.carta-verso{
-    transform:rotateY(180deg);
-    overflow:hidden;
-
-    background:#fff;
-}
-
-.carta-verso img{
+.carta .frente img{
     width:100%;
     height:100%;
     object-fit:cover;
 }
 
-#memoriaMensagem{
-    text-align:center;
-    min-height:30px;
+.carta .verso{
+    font-size:30px;
 }
 
-/* LEAFEON */
-
-.floresta{
-    text-align:center;
-
-    background:
-        radial-gradient(circle at 50% 20%,rgba(100,255,150,.18),transparent 35%),
-        rgba(255,255,255,.055);
-
-    border:1px solid rgba(255,255,255,.1);
-
-    border-radius:32px;
-
-    padding:25px;
-}
-
-.leafeon-img{
-    width:min(330px,80vw);
-    max-height:400px;
-    object-fit:contain;
-
-    filter:drop-shadow(0 20px 30px rgba(0,0,0,.35));
-
-    animation:flutuar 4s ease-in-out infinite;
-}
-
-.botao{
-    border:0;
-    border-radius:999px;
-
-    padding:13px 20px;
-
-    color:#fff;
-
-    background:
-        linear-gradient(
-            135deg,
-            #6d4aff,
-            #9a58ff
-        );
-
-    font-weight:700;
-
-    cursor:pointer;
-
-    box-shadow:0 8px 25px rgba(80,60,255,.25);
-
-    transition:.2s;
-}
-
-.botao:hover{
-    transform:translateY(-2px);
-}
-
-.botao:active{
-    transform:scale(.96);
-}
-
-/* FLURRY */
-
-.magia{
-    text-align:center;
-
-    background:
-        radial-gradient(circle at 50% 30%,rgba(255,120,230,.18),transparent 35%),
-        rgba(255,255,255,.055);
-
-    border:1px solid rgba(255,255,255,.1);
-
-    border-radius:32px;
-
-    padding:25px;
-}
-
-.flurry-img{
-    width:min(320px,85vw);
-    max-height:380px;
-    object-fit:contain;
-
-    filter:drop-shadow(0 20px 30px rgba(255,80,230,.25));
-}
-
-.magias{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-top:15px;
-}
-
-.magia-btn{
-    border:0;
-    border-radius:18px;
-
-    padding:13px 18px;
-
-    background:rgba(255,255,255,.1);
-    color:#fff;
-
-    cursor:pointer;
-
-    font-size:1.4rem;
-
-    transition:.2s;
-}
-
-.magia-btn:hover{
-    background:rgba(255,255,255,.18);
-    transform:scale(1.05);
-}
-
-/* CASA */
-
-.casa{
-    background:
-        linear-gradient(
-            180deg,
-            rgba(255,140,190,.14),
-            rgba(100,170,255,.08)
-        );
-
-    border:1px solid rgba(255,255,255,.1);
-    border-radius:32px;
-
-    padding:20px;
-}
-
-.comodos{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
-}
-
-.comodo{
-    min-height:115px;
-
-    border:1px solid rgba(255,255,255,.12);
-    border-radius:22px;
-
-    background:rgba(255,255,255,.07);
-
-    color:#fff;
-
-    padding:18px;
-
-    cursor:pointer;
-
-    transition:.2s;
-}
-
-.comodo:hover{
-    transform:translateY(-3px);
-    background:rgba(255,255,255,.12);
-}
-
-.comodo .emoji{
-    display:block;
-    font-size:2.5rem;
-    margin-bottom:7px;
-}
-
-/* COBRA */
-
-.arcade{
-    text-align:center;
+.carta.aberta .verso,
+.carta.encontrada .verso{
+    display:none;
 }
 
 #snakeCanvas{
     display:block;
-
-    width:min(300px,90vw);
+    width:min(100%,300px);
     height:auto;
-
     margin:20px auto;
-
-    background:#050711;
-
-    border:3px solid #5c5cff;
+    background:#050608;
+    border:2px solid rgba(255,255,255,.15);
     border-radius:18px;
-
-    box-shadow:0 0 35px rgba(80,70,255,.25);
 }
 
-.controles{
+.controles-cobra{
     display:grid;
     grid-template-columns:repeat(3,60px);
     justify-content:center;
-    gap:7px;
+    gap:8px;
+    margin-top:15px;
 }
 
-.controles button{
+.controles-cobra button{
     width:60px;
     height:50px;
-
     border:0;
-    border-radius:15px;
-
+    border-radius:14px;
     background:rgba(255,255,255,.1);
     color:#fff;
-
-    font-size:1.3rem;
-
-    cursor:pointer;
+    font-size:22px;
 }
 
-.controles button:nth-child(1){
-    grid-column:2;
-}
-
-.controles button:nth-child(2){
-    grid-column:1;
-    grid-row:2;
-}
-
-.controles button:nth-child(3){
-    grid-column:2;
-    grid-row:2;
-}
-
-.controles button:nth-child(4){
-    grid-column:3;
-    grid-row:2;
-}
-
-/* BIBLIOTECA */
-
-.estante{
+.livros{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
     gap:15px;
 }
 
 .livro{
-    border:1px solid rgba(255,255,255,.12);
-    border-radius:24px;
-
-    padding:22px 16px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.1),
-            rgba(255,255,255,.045)
-        );
-
-    color:#fff;
-
-    text-align:center;
-
-    cursor:pointer;
-
-    transition:.2s;
-}
-
-.livro:hover{
-    transform:translateY(-4px);
-}
-
-.livro .emoji{
-    display:block;
-    font-size:3rem;
-    margin-bottom:10px;
-}
-
-/* MEDALHAS */
-
-.medalhas-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:14px;
-}
-
-.medalha{
-    border:1px solid rgba(255,255,255,.1);
-    border-radius:24px;
-
     padding:20px;
-
-    background:rgba(255,255,255,.06);
-
-    text-align:center;
-
-    opacity:.38;
-
-    filter:grayscale(1);
-
-    transition:.3s;
-}
-
-.medalha.conquistada{
-    opacity:1;
-    filter:none;
-
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(255,215,80,.18),
-            rgba(255,255,255,.06)
-        );
-
-    box-shadow:0 0 30px rgba(255,215,80,.08);
-}
-
-.medalha .emoji{
-    font-size:3rem;
-    display:block;
-    margin-bottom:8px;
-}
-
-.progresso{
-    text-align:center;
-    margin-bottom:20px;
-}
-
-/* BAÚ */
-
-.bau{
-    text-align:center;
-
-    padding:40px 20px;
-
-    border-radius:32px;
-
-    background:
-        radial-gradient(circle at 50% 35%,rgba(255,210,60,.14),transparent 35%),
-        rgba(255,255,255,.055);
-
-    border:1px solid rgba(255,255,255,.1);
-}
-
-.bau-emoji{
-    font-size:7rem;
-    display:block;
-
-    margin:10px;
-
-    filter:drop-shadow(0 15px 30px rgba(255,190,50,.25));
-
-    animation:flutuar 3s ease-in-out infinite;
-}
-
-#mensagemBau{
-    margin:20px auto;
-    max-width:600px;
-    color:#dedff0;
-}
-
-/* RÁDIO */
-
-.radio-capa{
-    text-align:center;
-
-    padding:25px;
-
-    border-radius:32px;
-
-    background:
-        radial-gradient(
-            circle at 50% 30%,
-            rgba(255,100,180,.2),
-            transparent 35%
-        ),
-        rgba(255,255,255,.055);
-
-    border:1px solid rgba(255,255,255,.1);
-
-    margin-bottom:18px;
-}
-
-.radio-antena{
-    font-size:4rem;
-    animation:flutuar 3s ease-in-out infinite;
-}
-
-.radio-player{
-    margin:20px auto 0;
-
-    width:100%;
-    max-width:700px;
-
-    aspect-ratio:16/9;
-
-    overflow:hidden;
-
     border-radius:22px;
-
-    background:#000;
-
-    box-shadow:0 20px 60px rgba(0,0,0,.4);
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12);
 }
 
-.radio-player iframe{
-    width:100%;
-    height:100%;
-    border:0;
+.livro h3{
+    margin-bottom:12px;
 }
 
-.radio-musicas{
+.medalhas{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
     gap:15px;
 }
 
-.musica{
-    border:1px solid rgba(255,255,255,.12);
-    border-radius:26px;
-
+.medalha{
+    text-align:center;
     padding:22px;
-
-    background:rgba(255,255,255,.065);
-
-    transition:.2s;
+    border-radius:22px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.12);
+    transition:.3s;
 }
 
-.musica:hover{
-    transform:translateY(-4px);
-    background:rgba(255,255,255,.1);
-}
-
-.musica-icon{
-    font-size:3rem;
+.medalha .icone{
+    font-size:50px;
     margin-bottom:10px;
 }
 
-.musica h3{
-    margin-bottom:6px;
+.medalha.bloqueada{
+    opacity:.35;
+    filter:grayscale(1);
 }
 
-.musica p{
-    color:#c9cad9;
-    font-size:.9rem;
-    margin-bottom:15px;
+.progresso{
+    height:12px;
+    border-radius:999px;
+    background:rgba(255,255,255,.1);
+    overflow:hidden;
+    margin:15px 0;
 }
 
-.radio-botoes{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
+.progresso div{
+    height:100%;
+    width:0%;
+    background:linear-gradient(90deg,#ff65bd,#8e70ff);
+    transition:.5s;
 }
 
-.botao.rosa{
-    background:linear-gradient(135deg,#ff4fa3,#ff6cc2);
-}
-
-.botao.azul{
-    background:linear-gradient(135deg,#477cff,#54b8ff);
-}
-
-.radio-info{
-    margin-top:18px;
+.bau{
     text-align:center;
-    color:#aaaec6;
-    font-size:.82rem;
 }
 
-/* VITÓRIA */
+.bau-icone{
+    font-size:90px;
+    margin:20px;
+}
 
-#vitoria{
-    display:none;
+.radio-lista{
+    display:grid;
+    gap:14px;
+    margin-top:20px;
+}
 
-    position:fixed;
-    inset:0;
+.musica{
+    width:100%;
+    border:1px solid rgba(255,255,255,.12);
+    border-radius:22px;
+    padding:18px;
+    background:rgba(255,255,255,.06);
+    color:#fff;
+    cursor:pointer;
+    text-align:left;
+    display:flex;
+    align-items:center;
+    gap:15px;
+    transition:.25s;
+}
 
-    z-index:200;
+.musica:hover{
+    transform:translateY(-3px);
+    background:rgba(255,255,255,.11);
+}
 
+.musica.ativa{
+    border-color:rgba(255,130,210,.65);
+    background:linear-gradient(
+        135deg,
+        rgba(255,90,180,.18),
+        rgba(130,80,255,.15)
+    );
+}
+
+.musica-icone{
+    width:55px;
+    height:55px;
+    flex:none;
+    border-radius:18px;
+    display:flex;
     align-items:center;
     justify-content:center;
-
-    padding:20px;
-
-    background:rgba(0,0,0,.78);
+    font-size:27px;
+    background:linear-gradient(135deg,#ff5caf,#8e63ff);
 }
 
-#vitoria.ativa{
+.musica-info{
+    flex:1;
+}
+
+.musica-info strong{
+    display:block;
+    font-size:16px;
+    margin-bottom:5px;
+}
+
+.musica-info small{
+    color:#bcbccc;
+}
+
+.radio-player-box{
+    margin-top:20px;
+    padding:18px;
+    border-radius:25px;
+    background:rgba(0,0,0,.25);
+    border:1px solid rgba(255,255,255,.10);
+}
+
+.radio-agora{
+    text-align:center;
+    margin-bottom:15px;
+    color:#f7c8eb;
+    font-weight:bold;
+}
+
+.player-video{
+    width:100%;
+    aspect-ratio:16/9;
+    border:0;
+    border-radius:18px;
+    display:block;
+    background:#000;
+}
+
+.radio-aviso{
+    text-align:center;
+    margin-top:12px;
+    color:#999;
+    font-size:12px;
+}
+
+.modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:100;
+    background:rgba(0,0,0,.85);
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.ativo{
     display:flex;
+}
+
+.modal-caixa{
+    max-width:900px;
+    width:100%;
+    position:relative;
+    text-align:center;
+}
+
+.modal-caixa img{
+    max-width:100%;
+    max-height:75vh;
+    border-radius:22px;
+    object-fit:contain;
+}
+
+.modal-nome{
+    margin-top:12px;
+    font-size:20px;
+}
+
+.fechar{
+    position:absolute;
+    top:-15px;
+    right:-5px;
+    width:42px;
+    height:42px;
+    border:0;
+    border-radius:50%;
+    background:#fff;
+    color:#111;
+    font-size:22px;
+    cursor:pointer;
+    z-index:5;
+}
+
+#vitoria{
+    background:rgba(0,0,0,.82);
 }
 
 .vitoria-caixa{
-    width:min(450px,100%);
-
-    padding:30px;
-
+    width:min(90%,500px);
+    padding:35px 25px;
     text-align:center;
-
     border-radius:30px;
-
     background:
-        linear-gradient(
-            145deg,
-            #171b3b,
-            #101225
-        );
-
-    border:1px solid rgba(255,255,255,.14);
-
-    box-shadow:0 30px 100px rgba(0,0,0,.5);
-
-    animation:entrar .3s ease;
+        radial-gradient(circle at top,#7f51ff55,transparent 50%),
+        #12131d;
+    border:1px solid rgba(255,255,255,.15);
+    box-shadow:0 25px 80px rgba(0,0,0,.5);
 }
 
-.vitoria-caixa .emoji{
-    font-size:5rem;
+.vitoria-caixa h2{
+    font-size:2rem;
+    margin-bottom:12px;
 }
-
-/* CONFETES */
 
 .confete{
     position:fixed;
-
-    width:8px;
-    height:14px;
-
     top:-20px;
-
-    z-index:300;
-
-    pointer-events:none;
-
-    animation:confete 3s linear forwards;
+    width:9px;
+    height:15px;
+    z-index:200;
+    animation:cair 2.8s linear forwards;
 }
 
-@keyframesconfete{
+@keyframes cair{
     to{
-        transform:
-            translateY(110vh)
-            rotate(720deg);
+        transform:translateY(110vh) rotate(720deg);
         opacity:0;
     }
 }
 
-@keyframes confete{
-    to{
-        transform:
-            translateY(110vh)
-            rotate(720deg);
-        opacity:0;
-    }
+.mensagem{
+    text-align:center;
+    min-height:28px;
+    margin:15px 0;
+    color:#ffd4f2;
 }
-
-/* RESPONSIVO */
 
 @media(max-width:600px){
 
-    .grade{
-        grid-template-columns:1fr;
+    .tela{
+        padding:15px 12px 35px;
     }
 
-    .portal.jogos{
-        grid-column:auto;
+    .topo{
+        padding-top:25px;
     }
 
-    .jogos-grid{
-        grid-template-columns:1fr;
-    }
-
-    .mapa-grid{
-        grid-template-columns:1fr;
-    }
-
-    .comodos{
-        grid-template-columns:1fr;
-    }
-
-    .estante{
-        grid-template-columns:1fr;
-    }
-
-    .radio-musicas{
-        grid-template-columns:1fr;
-    }
-
-    .medalhas-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-    .familia-grid{
-        grid-template-columns:1fr 1fr;
+    .portal{
+        min-height:115px;
     }
 
     .cartas{
         gap:7px;
     }
 
-    .painel{
-        padding:16px;
-    }
-}
-
-@media(max-width:380px){
-
-    .familia-grid{
-        grid-template-columns:1fr;
+    .musica{
+        padding:14px;
     }
 
-    .medalhas-grid{
-        grid-template-columns:1fr;
+    .musica-icone{
+        width:48px;
+        height:48px;
+        border-radius:15px;
+        font-size:23px;
+    }
+
+    .musica-info strong{
+        font-size:14px;
+    }
+
+    .musica-info small{
+        font-size:12px;
     }
 }
 </style>
@@ -1188,21 +732,18 @@ p{
 
 <body>
 
-<!-- =========================
-     INÍCIO
-========================= -->
+<div class="estrelas" id="estrelas"></div>
 
+<!-- INÍCIO -->
 <section id="inicio" class="tela ativa">
 
 <div class="container">
 
 <div class="topo">
 
-<span class="emoji">🌈</span>
+<h1>🌈 O Mundo da Lívia & Ana ❤️</h1>
 
-<h1>O Mundo da Lívia & Ana ❤️</h1>
-
-<p class="subtitulo">
+<p>
 Um pequeno mundo feito especialmente para vocês.
 </p>
 
@@ -1213,215 +754,220 @@ Um pequeno mundo feito especialmente para vocês.
 
 </div>
 
-<div class="grade">
+<div class="painel">
 
-<button class="portal jogos" onclick="abrir('jogos')">
-<span class="icone">🎮</span>
+<div class="portais">
+
+<button class="portal" onclick="abrir('jogos')">
+<span class="emoji">🎮</span>
 <strong>Jogos Nossos</strong>
-<small>Um lugar só para nossas aventuras.</small>
+<small>Vamos brincar!</small>
 </button>
 
 <button class="portal" onclick="abrir('radio')">
-<span class="icone">🎧</span>
-<strong>Rádio Lívia & Ana</strong>
-<small>As músicas favoritas das meninas.</small>
+<span class="emoji">🎧</span>
+<strong>Rádio</strong>
+<small>Músicas favoritas</small>
 </button>
 
 <button class="portal" onclick="abrir('familia')">
-<span class="icone">👨‍👩‍👧‍👧</span>
+<span class="emoji">👨‍👩‍👧‍👧</span>
 <strong>Nossa Família</strong>
-<small>As pessoas mais importantes.</small>
+<small>Quem faz parte</small>
 </button>
 
 <button class="portal" onclick="abrir('biblioteca')">
-<span class="icone">📚</span>
+<span class="emoji">📚</span>
 <strong>Biblioteca</strong>
-<small>Histórias para imaginar.</small>
+<small>Livros mágicos</small>
 </button>
 
 <button class="portal" onclick="abrir('medalhas')">
-<span class="icone">🏆</span>
+<span class="emoji">🏆</span>
 <strong>Medalhas</strong>
-<small>Conquistas do nosso mundo.</small>
+<small>Conquistas</small>
 </button>
 
 <button class="portal" onclick="abrir('bau')">
-<span class="icone">🎁</span>
+<span class="emoji">🎁</span>
 <strong>Baú do Futuro</strong>
-<small>Uma surpresa guardada para vocês.</small>
+<small>Uma surpresa...</small>
 </button>
 
 </div>
 
 </div>
+
+</div>
+
 </section>
 
 
-<!-- =========================
-     JOGOS
-========================= -->
-
+<!-- JOGOS -->
 <section id="jogos" class="tela">
 
 <div class="container">
 
-<button class="voltar" onclick="abrir('inicio')">
+<button class="botao voltar" onclick="abrir('inicio')">
 ← Voltar
 </button>
 
-<div class="topo">
-
-<span class="emoji">🎮</span>
-
-<h2>Jogos Nossos</h2>
+<h2 class="titulo">🎮 Jogos Nossos</h2>
 
 <p class="subtitulo">
-Escolha uma aventura.
+Escolha uma aventura!
 </p>
-
-</div>
 
 <div class="jogos-grid">
 
 <button class="jogo" onclick="abrir('mapa')">
-<span class="emoji">🗺️</span>
-<strong>Mapa do Mundo</strong>
-<small>Explore todos os lugares.</small>
+<span class="icone">🗺️</span>
+<strong>Mapa Mágico</strong>
 </button>
 
 <button class="jogo" onclick="abrir('leafeon')">
-<span class="emoji">🌿</span>
-<strong>Floresta do Leafeon</strong>
-<small>Visite o Pokémon.</small>
+<span class="icone">🌿</span>
+<strong>Leafeon</strong>
 </button>
 
 <button class="jogo" onclick="abrir('flurry')">
-<span class="emoji">🦄</span>
-<strong>Castelo da Flurry</strong>
-<small>Use sua magia.</small>
+<span class="icone">🦄</span>
+<strong>Flurry Heart</strong>
 </button>
 
 <button class="jogo" onclick="abrir('gabby')">
-<span class="emoji">🏠</span>
-<strong>Casa Mágica da Ana</strong>
-<small>Explore os cômodos.</small>
+<span class="icone">🏠</span>
+<strong>Casa Mágica</strong>
 </button>
 
 <button class="jogo" onclick="abrir('memoria')">
-<span class="emoji">🧠</span>
+<span class="icone">🧠</span>
 <strong>Jogo da Memória</strong>
-<small>Encontre os pares.</small>
 </button>
 
 <button class="jogo" onclick="abrir('cobra')">
-<span class="emoji">🐍</span>
+<span class="icone">🐍</span>
 <strong>Cobrinha</strong>
-<small>Quanto você consegue fazer?</small>
 </button>
 
 </div>
 
 </div>
+
 </section>
 
 
-<!-- =========================
-     RÁDIO
-========================= -->
-
+<!-- RÁDIO -->
 <section id="radio" class="tela">
 
 <div class="container">
 
-<button class="voltar" onclick="abrir('inicio')">
+<button class="botao voltar" onclick="abrir('inicio')">
 ← Voltar
 </button>
 
-<div class="radio-capa">
-
-<div class="radio-antena">🎧</div>
-
-<h2>Rádio Lívia & Ana</h2>
+<h2 class="titulo">🎧 Rádio Lívia & Ana</h2>
 
 <p class="subtitulo">
-As músicas escolhidas pelas donas deste mundo. 💕
+As músicas favoritas das meninas 💕
 </p>
 
-<div class="radio-player">
+<div class="painel">
+
+<div class="radio-lista">
+
+<button
+class="musica"
+id="musicaLiviaDebut"
+onclick="tocarRadio(
+'FkhlaDkbbas',
+'💜 Lívia — Debut — KATSEYE',
+'KATSEYE'
+)"
+>
+
+<div class="musica-icone">
+💜
+</div>
+
+<div class="musica-info">
+<strong>Debut — KATSEYE</strong>
+<small>🎤 Música da Lívia</small>
+</div>
+
+<span>▶️</span>
+
+</button>
+
+
+<button
+class="musica"
+id="musicaNaruto"
+onclick="tocarRadio(
+'NVJevZGrU7E',
+'💜 Lívia — Naruto Shippuden / Blue Bird',
+'Se desse pra voar...'
+)"
+>
+
+<div class="musica-icone">
+🍥
+</div>
+
+<div class="musica-info">
+<strong>Naruto Shippuden — Blue Bird</strong>
+<small>💜 “Se desse pra voar...” — Lívia</small>
+</div>
+
+<span>▶️</span>
+
+</button>
+
+
+<button
+class="musica"
+id="musicaAna"
+onclick="tocarRadio(
+'pHALwt0Hgow',
+'💗 Ana — Dubidubidu — Christell',
+'Chipi Chipi Chapa Chapa'
+)"
+>
+
+<div class="musica-icone">
+💗
+</div>
+
+<div class="musica-info">
+<strong>Dubidubidu — Christell</strong>
+<small>💗 “Chipi Chipi Chapa Chapa” — Ana</small>
+</div>
+
+<span>▶️</span>
+
+</button>
+
+</div>
+
+
+<div class="radio-player-box">
+
+<div class="radio-agora" id="radioAgora">
+🎶 Escolha uma música para começar
+</div>
 
 <iframe
 id="playerRadio"
+class="player-video"
 src=""
 title="Rádio Lívia & Ana"
 allow="autoplay; encrypted-media; picture-in-picture"
 allowfullscreen>
 </iframe>
 
+<div class="radio-aviso">
+A música toca aqui mesmo, dentro da Rádio Lívia & Ana 💕
 </div>
-
-<p id="radioAgora"
-style="margin-top:15px;font-weight:700;">
-Escolha uma música para começar 🎶
-</p>
-
-</div>
-
-<div class="radio-musicas">
-
-<div class="musica">
-
-<div class="musica-icon">💜</div>
-
-<h3>🎤 Música da Lívia</h3>
-
-<p>
-Naruto Shippuden — Abertura 3 em Português<br>
-Miura Jam — “Se desse pra voar…”
-</p>
-
-<div class="radio-botoes">
-
-<button
-class="botao rosa"
-onclick="tocarRadio('livia')">
-▶ Tocar
-</button>
-
-<button
-class="botao"
-onclick="abrirYoutube('livia')">
-YouTube
-</button>
-
-</div>
-
-</div>
-
-
-<div class="musica">
-
-<div class="musica-icon">💗</div>
-
-<h3>🎤 Música da Ana</h3>
-
-<p>
-Dubidubidu — Christell<br>
-“Chipi Chipi Chapa Chapa”
-</p>
-
-<div class="radio-botoes">
-
-<button
-class="botao azul"
-onclick="tocarRadio('ana')">
-▶ Tocar
-</button>
-
-<button
-class="botao"
-onclick="abrirYoutube('ana')">
-YouTube
-</button>
 
 </div>
 
@@ -1429,378 +975,250 @@ YouTube
 
 </div>
 
-<div class="radio-info">
-
-A música toca pelo YouTube dentro do próprio site.
-<br>
-Assim o site não precisa armazenar ou distribuir os arquivos das músicas.
-
-</div>
-
-</div>
 </section>
 
 
-<!-- =========================
-     MAPA
-========================= -->
-
+<!-- MAPA -->
 <section id="mapa" class="tela">
 
 <div class="container">
 
-<button class="voltar" onclick="abrir('jogos')">
+<button class="botao voltar" onclick="abrir('jogos')">
 ← Voltar
 </button>
 
-<div class="topo">
-
-<span class="emoji">🗺️</span>
-
-<h2>Mapa do Mundo</h2>
+<h2 class="titulo">🗺️ Mapa Mágico</h2>
 
 <p class="subtitulo">
-Escolha para onde vamos.
+Explore todos os lugares!
 </p>
-
-</div>
 
 <div class="mapa">
 
-<div class="mapa-grid">
-
 <button class="local" onclick="abrir('memoria')">
-<span class="emoji">🧠</span>
+<span class="icone">🧠</span>
 <strong>Vale da Memória</strong>
 </button>
 
 <button class="local" onclick="abrir('leafeon')">
-<span class="emoji">🌿</span>
+<span class="icone">🌿</span>
 <strong>Floresta do Leafeon</strong>
 </button>
 
 <button class="local" onclick="abrir('flurry')">
-<span class="emoji">🦄</span>
+<span class="icone">🦄</span>
 <strong>Castelo da Flurry</strong>
 </button>
 
 <button class="local" onclick="abrir('cobra')">
-<span class="emoji">🐍</span>
+<span class="icone">🐍</span>
 <strong>Vale da Cobrinha</strong>
 </button>
 
 <button class="local" onclick="abrir('gabby')">
-<span class="emoji">🏠</span>
+<span class="icone">🏠</span>
 <strong>Casa Mágica</strong>
 </button>
 
 <button class="local" onclick="abrir('biblioteca')">
-<span class="emoji">📚</span>
+<span class="icone">📚</span>
 <strong>Biblioteca</strong>
 </button>
 
 <button class="local" onclick="abrir('familia')">
-<span class="emoji">👨‍👩‍👧‍👧</span>
+<span class="icone">👨‍👩‍👧‍👧</span>
 <strong>Nossa Família</strong>
 </button>
 
 </div>
 
-</div>
+<div class="mensagem" id="mapaMensagem"></div>
 
 </div>
+
 </section>
 
 
-<!-- =========================
-     FAMÍLIA
-========================= -->
-
-<section id="familia" class="tela">
-
-<div class="container">
-
-<button class="voltar" onclick="abrir('inicio')">
-← Voltar
-</button>
-
-<div class="topo">
-
-<span class="emoji">👨‍👩‍👧‍👧</span>
-
-<h2>Nossa Família</h2>
-
-<p class="subtitulo">
-Algumas das pessoas que fazem nosso mundo ser especial.
-</p>
-
-</div>
-
-<div class="familia-grid">
-
-<div class="familiar"
-onclick="abrirFoto('IMG_3780.jpeg','Lívia ❤️')">
-
-<img
-src="IMG_3780.jpeg"
-alt="Lívia">
-
-<div>🌸 Lívia</div>
-
-</div>
-
-
-<div class="familiar"
-onclick="abrirFoto('IMG_3782.jpeg','Ana ❤️')">
-
-<img
-src="IMG_3782.jpeg"
-alt="Ana">
-
-<div>🌷 Ana</div>
-
-</div>
-
-
-<div class="familiar"
-onclick="abrirFoto('IMG_3783.jpeg','Papai ❤️')">
-
-<img
-src="IMG_3783.jpeg"
-alt="Papai">
-
-<div>👨 Papai</div>
-
-</div>
-
-
-<div class="familiar"
-onclick="abrirFoto('IMG_3784.jpeg','Mamãe ❤️')">
-
-<img
-src="IMG_3784.jpeg"
-alt="Mamãe">
-
-<div>👩 Mamãe</div>
-
-</div>
-
-</div>
-
-</div>
-</section>
-
-
-<!-- =========================
-     LEAFEON
-========================= -->
-
+<!-- LEAFEON -->
 <section id="leafeon" class="tela">
 
 <div class="container">
 
-<button class="voltar" onclick="abrir('jogos')">
+<button class="botao voltar" onclick="abrir('jogos')">
 ← Voltar
 </button>
 
-<div class="floresta">
+<div class="painel personagem">
 
-<div class="topo">
-
-<span class="emoji">🌿</span>
-
-<h2>Floresta do Leafeon</h2>
+<h2 class="titulo">🌿 Leafeon</h2>
 
 <p class="subtitulo">
-O guardião verde estava esperando por vocês.
+O Pokémon folha veio visitar vocês!
 </p>
 
-</div>
-
 <img
-class="leafeon-img"
 src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/470.png"
 alt="Leafeon">
 
-<br>
+<div class="mensagem" id="leafeonMensagem">
+Oi! Eu sou o Leafeon! 🌿
+</div>
 
 <button
 class="botao"
 onclick="mensagemLeafeon()">
-🌿 Falar com Leafeon
+✨ Conversar com Leafeon
 </button>
 
-<p
-id="mensagemLeafeonTexto"
-style="margin-top:18px;min-height:30px;">
-</p>
-
 </div>
 
 </div>
+
 </section>
 
 
-<!-- =========================
-     FLURRY
-========================= -->
-
+<!-- FLURRY -->
 <section id="flurry" class="tela">
 
 <div class="container">
 
-<button class="voltar" onclick="abrir('jogos')">
+<button class="botao voltar" onclick="abrir('jogos')">
 ← Voltar
 </button>
 
-<div class="magia">
+<div class="painel personagem">
 
-<div class="topo">
-
-<span class="emoji">🦄</span>
-
-<h2>Castelo da Flurry</h2>
+<h2 class="titulo">🦄 Castelo da Flurry Heart</h2>
 
 <p class="subtitulo">
-A magia está nas mãos de vocês.
+Vamos fazer magia!
 </p>
 
-</div>
-
 <img
-class="flurry-img"
 src="https://static.wikia.nocookie.net/mlp/images/8/8e/Flurry_Heart_ID_S6E1.png"
 alt="Flurry Heart">
 
-<div class="magias">
+<div class="acoes">
 
-<button class="magia-btn" onclick="magiaFlurry('✨')">✨</button>
-<button class="magia-btn" onclick="magiaFlurry('🌈')">🌈</button>
-<button class="magia-btn" onclick="magiaFlurry('💖')">💖</button>
-<button class="magia-btn" onclick="magiaFlurry('⭐')">⭐</button>
-<button class="magia-btn" onclick="magiaFlurry('🦄')">🦄</button>
+<button class="botao rosa" onclick="magiaFlurry('✨')">
+✨ Magia
+</button>
+
+<button class="botao" onclick="magiaFlurry('🌈')">
+🌈 Arco-íris
+</button>
+
+<button class="botao" onclick="magiaFlurry('💖')">
+💖 Amor
+</button>
+
+<button class="botao" onclick="magiaFlurry('⭐')">
+⭐ Estrela
+</button>
 
 </div>
 
-<p
-id="mensagemFlurry"
-style="margin-top:20px;min-height:30px;">
-</p>
-
+<div class="mensagem" id="flurryMensagem">
+Flurry está esperando sua magia...
 </div>
 
 </div>
+
+</div>
+
 </section>
 
 
-<!-- =========================
-     CASA DA ANA
-========================= -->
-
+<!-- GABBY -->
 <section id="gabby" class="tela">
 
 <div class="container">
 
-<button class="voltar" onclick="abrir('jogos')">
+<button class="botao voltar" onclick="abrir('jogos')">
 ← Voltar
 </button>
 
-<div class="casa">
-
-<div class="topo">
-
-<span class="emoji">🌸</span>
-
-<h2>A Casa Mágica da Ana</h2>
+<h2 class="titulo">🌸 A Casa Mágica da Ana</h2>
 
 <p class="subtitulo">
-Entre nos cômodos e descubra quem está lá.
+Entre em cada cômodo!
 </p>
 
-</div>
+<div class="painel">
 
 <div class="comodos">
 
 <button class="comodo" onclick="comodoGabby('cakey')">
-<span class="emoji">🍰</span>
-<strong>Cakey</strong>
+<span>🍰</span>
+Cakey
 </button>
 
 <button class="comodo" onclick="comodoGabby('kitty')">
-<span class="emoji">🧚</span>
-<strong>Kitty Fairy</strong>
+<span>🧚</span>
+Kitty Fairy
 </button>
 
 <button class="comodo" onclick="comodoGabby('dj')">
-<span class="emoji">🎧</span>
-<strong>DJ Catnip</strong>
+<span>🎧</span>
+DJ Catnip
 </button>
 
 <button class="comodo" onclick="comodoGabby('mercat')">
-<span class="emoji">🧜‍♀️</span>
-<strong>MerCat</strong>
+<span>🧜</span>
+MerCat
 </button>
 
 <button class="comodo" onclick="comodoGabby('baby')">
-<span class="emoji">🎀</span>
-<strong>Baby Box</strong>
+<span>📦</span>
+Baby Box
 </button>
 
 <button class="comodo" onclick="comodoGabby('carlita')">
-<span class="emoji">🚗</span>
-<strong>Carlita</strong>
+<span>🚗</span>
+Carlita
 </button>
 
 <button class="comodo" onclick="comodoGabby('catrat')">
-<span class="emoji">🐱</span>
-<strong>CatRat</strong>
+<span>🐱</span>
+CatRat
 </button>
 
 <button class="comodo" onclick="comodoGabby('gabby')">
-<span class="emoji">🌸</span>
-<strong>Gabby</strong>
+<span>🌸</span>
+Gabby
 </button>
 
 </div>
 
-<p
-id="mensagemGabby"
-style="text-align:center;margin-top:20px;min-height:30px;">
-</p>
-
+<div class="mensagem" id="gabbyMensagem">
+A casa está esperando você! 🏠
 </div>
 
 </div>
+
+</div>
+
 </section>
 
 
-<!-- =========================
-     MEMÓRIA
-========================= -->
-
+<!-- MEMÓRIA -->
 <section id="memoria" class="tela">
 
 <div class="container">
 
-<button class="voltar" onclick="abrir('jogos')">
+<button class="botao voltar" onclick="abrir('jogos')">
 ← Voltar
 </button>
 
-<div class="painel painel-central">
-
-<div class="topo">
-
-<span class="emoji">🧠</span>
-
-<h2>Jogo da Memória</h2>
+<h2 class="titulo">🧠 Jogo da Memória</h2>
 
 <p class="subtitulo">
-Encontre os 6 pares.
+Encontre todos os pares!
 </p>
 
-</div>
+<div class="painel">
 
-<div class="memoria-status">
+<div class="memoria-info">
 
 <span>❤️ Pares: <b id="paresMemoria">0</b>/6</span>
 
@@ -1809,13 +1227,17 @@ Encontre os 6 pares.
 </div>
 
 <div
-id="cartas"
-class="cartas">
+class="mensagem"
+id="memoriaMensagem">
+Vamos começar!
 </div>
 
-<p id="memoriaMensagem"></p>
+<div
+class="cartas"
+id="cartas">
+</div>
 
-<br>
+<div style="text-align:center">
 
 <button
 class="botao"
@@ -1826,38 +1248,33 @@ onclick="novoJogoMemoria()">
 </div>
 
 </div>
+
+</div>
+
 </section>
 
 
-<!-- =========================
-     COBRA
-========================= -->
-
+<!-- COBRA -->
 <section id="cobra" class="tela">
 
 <div class="container">
 
-<button class="voltar" onclick="abrir('jogos')">
+<button class="botao voltar" onclick="abrir('jogos')">
 ← Voltar
 </button>
 
-<div class="painel arcade">
-
-<div class="topo">
-
-<span class="emoji">🐍</span>
-
-<h2>Cobrinha</h2>
+<h2 class="titulo">🐍 Cobrinha</h2>
 
 <p class="subtitulo">
-Pegue as maçãs e faça o maior número possível.
+Pegue as estrelinhas!
 </p>
 
+<div class="painel">
+
+<div style="text-align:center">
+⭐ Pontuação:
+<b id="pontuacao">0</b>
 </div>
-
-<p>
-Pontuação: <strong id="pontuacao">0</strong>
-</p>
 
 <canvas
 id="snakeCanvas"
@@ -1865,289 +1282,379 @@ width="300"
 height="300">
 </canvas>
 
-<div class="controles">
+<div class="controles-cobra">
 
-<button onclick="mudarDirecao('cima')">⬆️</button>
+<div></div>
 
-<button onclick="mudarDirecao('esquerda')">⬅️</button>
+<button onclick="mudarDirecao('cima')">
+⬆️
+</button>
 
-<button onclick="mudarDirecao('baixo')">⬇️</button>
+<div></div>
 
-<button onclick="mudarDirecao('direita')">➡️</button>
+<button onclick="mudarDirecao('esquerda')">
+⬅️
+</button>
+
+<button onclick="mudarDirecao('baixo')">
+⬇️
+</button>
+
+<button onclick="mudarDirecao('direita')">
+➡️
+</button>
 
 </div>
 
-<br>
+<div
+class="mensagem"
+id="cobraMensagem">
+Boa sorte! 🐍
+</div>
+
+<div style="text-align:center">
 
 <button
 class="botao"
 onclick="iniciarJogo()">
-▶ Jogar novamente
+▶️ Jogar
 </button>
 
 </div>
 
 </div>
+
+</div>
+
 </section>
 
 
-<!-- =========================
-     BIBLIOTECA
-========================= -->
+<!-- FAMÍLIA -->
+<section id="familia" class="tela">
 
+<div class="container">
+
+<button class="botao voltar" onclick="abrir('inicio')">
+← Voltar
+</button>
+
+<h2 class="titulo">👨‍👩‍👧‍👧 Nossa Família</h2>
+
+<p class="subtitulo">
+As pessoas mais importantes desse mundo ❤️
+</p>
+
+<div class="familia-grid">
+
+<button
+class="familiar"
+onclick="abrirFoto('IMG_3780.jpeg','Lívia')">
+
+<img
+src="IMG_3780.jpeg"
+alt="Lívia">
+
+<h3>💜 Lívia</h3>
+
+</button>
+
+
+<button
+class="familiar"
+onclick="abrirFoto('IMG_3782.jpeg','Ana')">
+
+<img
+src="IMG_3782.jpeg"
+alt="Ana">
+
+<h3>💗 Ana</h3>
+
+</button>
+
+
+<button
+class="familiar"
+onclick="abrirFoto('IMG_3783.jpeg','Papai')">
+
+<img
+src="IMG_3783.jpeg"
+alt="Papai">
+
+<h3>💙 Papai</h3>
+
+</button>
+
+
+<button
+class="familiar"
+onclick="abrirFoto('IMG_3784.jpeg','Mamãe')">
+
+<img
+src="IMG_3784.jpeg"
+alt="Mamãe">
+
+<h3>❤️ Mamãe</h3>
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- BIBLIOTECA -->
 <section id="biblioteca" class="tela">
 
 <div class="container">
 
-<button class="voltar" onclick="abrir('inicio')">
+<button class="botao voltar" onclick="abrir('inicio')">
 ← Voltar
 </button>
 
-<div class="topo">
-
-<span class="emoji">📚</span>
-
-<h2>Biblioteca</h2>
+<h2 class="titulo">📚 Biblioteca Mágica</h2>
 
 <p class="subtitulo">
-Histórias especiais para vocês.
+Escolha uma história!
 </p>
 
-</div>
+<div class="livros">
 
-<div class="estante">
+<div class="livro">
 
-<a
-class="livro"
-href="https://gamesonlinee.github.io/Meu-site/A_Galinha_e_o_Pintinho_Azulzinho.pdf"
-target="_blank"
-onclick="registrarLivro(1)">
+<h3>🐔 A Galinha e o Pintinho Azulzinho</h3>
 
-<span class="emoji">🐔</span>
-
-<strong>
-A Galinha e o Pintinho Azulzinho
-</strong>
-
-</a>
-
-
-<a
-class="livro"
-href="https://gamesonlinee.github.io/Meu-site/A_Joaninha_Amarela_livro.pdf"
-target="_blank"
-onclick="registrarLivro(2)">
-
-<span class="emoji">🐞</span>
-
-<strong>
-A Joaninha Amarela
-</strong>
-
-</a>
-
-
-<a
-class="livro"
-href="https://gamesonlinee.github.io/Meu-site/A_Batata_Risonha_o_Passarinho_e_a_Dona_Aranha_sem_instrucoes.pdf"
-target="_blank"
-onclick="registrarLivro(3)">
-
-<span class="emoji">🥔</span>
-
-<strong>
-A Batata Risonha
-</strong>
-
-</a>
-
-
-<a
-class="livro"
-href="https://gamesonlinee.github.io/Meu-site/Aramiau_Codogue_Stitch_Eevee.pdf"
-target="_blank"
-onclick="registrarLivro(4)">
-
-<span class="emoji">📖</span>
-
-<strong>
-Aramiau, Codogue, Stitch & Eevee
-</strong>
-
-</a>
+<button
+class="botao"
+onclick="registrarLivro(1);window.open(
+'https://gamesonlinee.github.io/Meu-site/A_Galinha_e_o_Pintinho_Azulzinho.pdf',
+'_blank'
+)">
+📖 Ler
+</button>
 
 </div>
 
+
+<div class="livro">
+
+<h3>🐞 A Joaninha Amarela</h3>
+
+<button
+class="botao"
+onclick="registrarLivro(2);window.open(
+'https://gamesonlinee.github.io/Meu-site/A_Joaninha_Amarela_livro.pdf',
+'_blank'
+)">
+📖 Ler
+</button>
+
 </div>
+
+
+<div class="livro">
+
+<h3>🥔 A Batata Risonha</h3>
+
+<button
+class="botao"
+onclick="registrarLivro(3);window.open(
+'https://gamesonlinee.github.io/Meu-site/A_Batata_Risonha_o_Passarinho_e_a_Dona_Aranha_sem_instrucoes.pdf',
+'_blank'
+)">
+📖 Ler
+</button>
+
+</div>
+
+
+<div class="livro">
+
+<h3>🐱 Aramiau Codogue Stitch Eevee</h3>
+
+<button
+class="botao"
+onclick="registrarLivro(4);window.open(
+'https://gamesonlinee.github.io/Meu-site/Aramiau_Codogue_Stitch_Eevee.pdf',
+'_blank'
+)">
+📖 Ler
+</button>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 
-<!-- =========================
-     MEDALHAS
-========================= -->
-
+<!-- MEDALHAS -->
 <section id="medalhas" class="tela">
 
 <div class="container">
 
-<button class="voltar" onclick="abrir('inicio')">
+<button class="botao voltar" onclick="abrir('inicio')">
 ← Voltar
 </button>
 
-<div class="topo">
-
-<span class="emoji">🏆</span>
-
-<h2>Medalhas</h2>
+<h2 class="titulo">🏆 Medalhas</h2>
 
 <p class="subtitulo">
-Cada aventura pode virar uma conquista.
+Cada aventura deixa uma lembrança!
 </p>
 
-</div>
+<div class="painel">
+
+<div style="text-align:center">
+
+<b id="progressoMedalhas">
+0 / 7
+</b>
 
 <div class="progresso">
-
-<strong>
-<span id="progressoMedalhas">0</span>/7 medalhas conquistadas
-</strong>
+<div id="barraMedalhas"></div>
+</div>
 
 </div>
 
-<div class="medalhas-grid">
+<div class="medalhas">
 
-<div id="medalhaLivro" class="medalha">
-<span class="emoji">📚</span>
+<div class="medalha bloqueada" id="medalhaLivro">
+<div class="icone">📚</div>
 <strong>Leitora</strong>
-<p>Leia os livros.</p>
+<p>Leia todos os livros.</p>
 </div>
 
-<div id="medalhaEstrela" class="medalha">
-<span class="emoji">⭐</span>
+<div class="medalha bloqueada" id="medalhaEstrela">
+<div class="icone">⭐</div>
 <strong>Exploradora</strong>
-<p>Acumule estrelas.</p>
+<p>Junte estrelas.</p>
 </div>
 
-<div id="medalhaCobra" class="medalha">
-<span class="emoji">🐍</span>
-<strong>Mestra da Cobrinha</strong>
+<div class="medalha bloqueada" id="medalhaCobra">
+<div class="icone">🐍</div>
+<strong>Cobra</strong>
 <p>Faça 5 pontos.</p>
 </div>
 
-<div id="medalhaMundo" class="medalha">
-<span class="emoji">🗺️</span>
+<div class="medalha bloqueada" id="medalhaMundo">
+<div class="icone">🗺️</div>
 <strong>Exploradora do Mundo</strong>
 <p>Explore o mapa.</p>
 </div>
 
-<div id="medalhaMemoria" class="medalha">
-<span class="emoji">🧠</span>
-<strong>Memória de Ouro</strong>
+<div class="medalha bloqueada" id="medalhaMemoria">
+<div class="icone">🧠</div>
+<strong>Memória Mágica</strong>
 <p>Complete o jogo.</p>
 </div>
 
-<div id="medalhaFamilia" class="medalha">
-<span class="emoji">❤️</span>
+<div class="medalha bloqueada" id="medalhaFamilia">
+<div class="icone">❤️</div>
 <strong>Família</strong>
 <p>Visite nossa família.</p>
 </div>
 
-<div id="medalhaCasa" class="medalha">
-<span class="emoji">🏠</span>
+<div class="medalha bloqueada" id="medalhaCasa">
+<div class="icone">🏠</div>
 <strong>Casa Mágica</strong>
-<p>Explore os 8 cômodos.</p>
+<p>Explore todos os cômodos.</p>
 </div>
 
 </div>
 
 </div>
+
+</div>
+
 </section>
 
 
-<!-- =========================
-     BAÚ
-========================= -->
-
+<!-- BAÚ -->
 <section id="bau" class="tela">
 
 <div class="container">
 
-<button class="voltar" onclick="abrir('inicio')">
+<button class="botao voltar" onclick="abrir('inicio')">
 ← Voltar
 </button>
 
-<div class="bau">
+<div class="painel bau">
 
-<span class="bau-emoji">🎁</span>
+<h2 class="titulo">🎁 Baú do Futuro</h2>
 
-<h2>Baú do Futuro</h2>
-
-<p class="subtitulo">
-Existe uma mensagem aqui esperando pelo momento certo.
-</p>
+<div class="bau-icone">
+🔐
+</div>
 
 <p id="mensagemBau">
-🔒 O baú está fechado...
+Existe uma mensagem guardada aqui para vocês...
 </p>
 
+<br>
+
 <button
-class="botao"
+class="botao rosa"
 onclick="abrirMensagemBau()">
-✨ Abrir mensagem
+✨ Abrir
 </button>
 
 </div>
 
 </div>
+
 </section>
 
 
-<!-- =========================
-     MODAL FOTO
-========================= -->
-
+<!-- MODAL FOTO -->
 <div
+class="modal"
 id="modalFoto"
 onclick="fecharFoto(event)">
 
-<div class="modal-foto-caixa">
+<div class="modal-caixa">
+
+<button
+class="fechar"
+onclick="fecharFoto()">
+×
+</button>
 
 <img
 id="fotoGrande"
 src=""
 alt="Foto">
 
-<div id="nomeFoto"></div>
-
-<button
-class="fechar"
-onclick="fecharFoto()">
-Fechar
-</button>
+<div
+class="modal-nome"
+id="nomeFoto">
+</div>
 
 </div>
 
 </div>
 
 
-<!-- =========================
-     VITÓRIA
-========================= -->
-
-<div id="vitoria">
+<!-- VITÓRIA -->
+<div
+class="modal"
+id="vitoria">
 
 <div class="vitoria-caixa">
 
-<div class="emoji">🎉</div>
+<h2>🎉 Parabéns! 🎉</h2>
 
-<h2>Parabéns!</h2>
-
-<p id="textoVitoria" style="margin:15px 0;">
-Você conquistou uma nova estrela!
+<p id="textoVitoria">
+Você conseguiu!
 </p>
 
+<br>
+
 <button
-class="botao"
+class="botao rosa"
 onclick="fecharVitoria()">
 ❤️ Continuar
 </button>
@@ -2159,49 +1666,94 @@ onclick="fecharVitoria()">
 
 <script>
 
-/* =========================================
-   ESTADO
-========================================= */
+/* =========================
+   ESTRELAS DO FUNDO
+========================= */
 
-let estrelas =
-Number(localStorage.getItem("estrelasMeninas") || 0);
+const campoEstrelas =
+document.getElementById("estrelas");
 
-let livrosLidos =
-Number(localStorage.getItem("livrosLidos") || 0);
+for(let i=0;i<100;i++){
 
-let mapaExplorado =
-localStorage.getItem("mapaExplorado") === "true";
+    const estrela =
+    document.createElement("div");
 
-let familiaVisitada =
-localStorage.getItem("familiaVisitada") === "true";
+    estrela.className="estrela";
 
-let memoriaCompleta =
-localStorage.getItem("memoriaCompleta") === "true";
+    estrela.style.left =
+    Math.random()*100+"%";
 
-let casaVisitada =
-Number(localStorage.getItem("casaVisitada") || 0);
+    estrela.style.top =
+    Math.random()*100+"%";
 
-let comodosGabby =
-JSON.parse(localStorage.getItem("comodosGabby") || "[]");
+    estrela.style.animationDelay =
+    Math.random()*3+"s";
 
-let cobraMedalha =
-localStorage.getItem("cobraMedalha") === "true";
+    campoEstrelas.appendChild(estrela);
+}
 
 
-/* =========================================
+/* =========================
+   LOCAL STORAGE
+========================= */
+
+function numeroEstrelas(){
+
+    return Number(
+        localStorage.getItem("estrelasMeninas") || 0
+    );
+
+}
+
+function adicionarEstrelas(qtd){
+
+    let total =
+    numeroEstrelas()+qtd;
+
+    localStorage.setItem(
+        "estrelasMeninas",
+        total
+    );
+
+    atualizarStatus();
+    atualizarMedalhas();
+
+}
+
+function atualizarStatus(){
+
+    document.getElementById(
+        "estrelasInicio"
+    ).textContent =
+    numeroEstrelas();
+
+    let desbloqueadas =
+    document.querySelectorAll(
+        ".medalha:not(.bloqueada)"
+    ).length;
+
+    document.getElementById(
+        "medalhasInicio"
+    ).textContent =
+    desbloqueadas;
+
+}
+
+
+/* =========================
    NAVEGAÇÃO
-========================================= */
+========================= */
 
 function abrir(id){
 
     document
-        .querySelectorAll(".tela")
-        .forEach(tela =>
-            tela.classList.remove("ativa")
-        );
+    .querySelectorAll(".tela")
+    .forEach(tela=>{
+        tela.classList.remove("ativa");
+    });
 
     const tela =
-        document.getElementById(id);
+    document.getElementById(id);
 
     if(!tela) return;
 
@@ -2212,1149 +1764,1090 @@ function abrir(id){
         behavior:"smooth"
     });
 
-    if(id === "mapa"){
+    if(id==="mapa"){
         registrarMapa();
     }
 
-    if(id === "familia"){
+    if(id==="familia"){
         registrarFamilia();
     }
 
-    if(id === "memoria"){
-        if(document.getElementById("cartas").children.length === 0){
+    if(id==="memoria"){
+        if(!memoriaInicializada){
             novoJogoMemoria();
         }
     }
 
-    if(id === "cobra"){
-        atualizarPontuacao();
-    }
-
-    atualizarInterface();
 }
 
 
-/* =========================================
-   ESTRELAS
-========================================= */
+/* =========================
+   RÁDIO
+========================= */
 
-function ganharEstrela(qtd=1){
+let musicaAtual="";
 
-    estrelas += qtd;
+function tocarRadio(videoId,nome,subtitulo){
 
-    localStorage.setItem(
-        "estrelasMeninas",
-        estrelas
-    );
+    const player =
+    document.getElementById("playerRadio");
 
-    atualizarInterface();
+    const agora =
+    document.getElementById("radioAgora");
 
-    mostrarVitoria(
-        qtd === 1
-        ? "⭐ Uma nova estrela foi conquistada!"
-        : `⭐ Vocês conquistaram ${qtd} estrelas!`
-    );
+    const botoes =
+    document.querySelectorAll(".musica");
+
+    botoes.forEach(botao=>{
+        botao.classList.remove("ativa");
+    });
+
+    let botaoAtivo=null;
+
+    if(videoId==="FkhlaDkbbas"){
+        botaoAtivo =
+        document.getElementById(
+            "musicaLiviaDebut"
+        );
+    }
+
+    if(videoId==="NVJevZGrU7E"){
+        botaoAtivo =
+        document.getElementById(
+            "musicaNaruto"
+        );
+    }
+
+    if(videoId==="pHALwt0Hgow"){
+        botaoAtivo =
+        document.getElementById(
+            "musicaAna"
+        );
+    }
+
+    if(botaoAtivo){
+        botaoAtivo.classList.add("ativa");
+    }
+
+    if(musicaAtual===videoId){
+
+        if(
+            player.src &&
+            player.src.includes(videoId)
+        ){
+            player.src="";
+            agora.textContent=
+            "⏸️ Música pausada";
+            musicaAtual="";
+            return;
+        }
+
+    }
+
+    musicaAtual=videoId;
+
+    agora.textContent=
+    nome+" • "+subtitulo;
+
+    player.src=
+    "https://www.youtube.com/embed/"
+    +videoId+
+    "?autoplay=1&rel=0";
+
 }
 
 
-function atualizarInterface(){
-
-    const estrelasEl =
-        document.getElementById("estrelasInicio");
-
-    const medalhasEl =
-        document.getElementById("medalhasInicio");
-
-    if(estrelasEl){
-        estrelasEl.textContent = estrelas;
-    }
-
-    atualizarMedalhas();
-
-    if(medalhasEl){
-        medalhasEl.textContent =
-            document.querySelectorAll(
-                ".medalha.conquistada"
-            ).length;
-    }
-}
-
-
-/* =========================================
+/* =========================
    MAPA
-========================================= */
+========================= */
 
 function registrarMapa(){
 
-    if(!mapaExplorado){
-
-        mapaExplorado = true;
+    if(
+        !localStorage.getItem("mapaExplorado")
+    ){
 
         localStorage.setItem(
             "mapaExplorado",
             "true"
         );
 
-        ganharEstrela(1);
+        adicionarEstrelas(1);
+
+        document.getElementById(
+            "mapaMensagem"
+        ).textContent=
+        "⭐ Você descobriu o mapa mágico!";
+
     }
+
 }
 
 
-/* =========================================
+/* =========================
    FAMÍLIA
-========================================= */
+========================= */
 
 function registrarFamilia(){
 
-    if(!familiaVisitada){
-
-        familiaVisitada = true;
+    if(
+        !localStorage.getItem("familiaVisitada")
+    ){
 
         localStorage.setItem(
             "familiaVisitada",
             "true"
         );
 
-        ganharEstrela(1);
+        adicionarEstrelas(1);
+
     }
+
 }
 
+function abrirFoto(arquivo,nome){
 
-function abrirFoto(src,nome){
+    document.getElementById(
+        "fotoGrande"
+    ).src=arquivo;
 
-    document.getElementById("fotoGrande").src = src;
+    document.getElementById(
+        "nomeFoto"
+    ).textContent=nome;
 
-    document.getElementById("nomeFoto").textContent = nome;
+    document.getElementById(
+        "modalFoto"
+    ).classList.add("ativo");
 
-    document
-        .getElementById("modalFoto")
-        .classList.add("ativo");
 }
-
 
 function fecharFoto(event){
 
     if(
         event &&
-        event.target &&
-        event.target.id !== "modalFoto"
-    ){
-        return;
-    }
+        event.target !== event.currentTarget
+    ) return;
 
-    document
-        .getElementById("modalFoto")
-        .classList.remove("ativo");
+    document.getElementById(
+        "modalFoto"
+    ).classList.remove("ativo");
+
 }
 
+document.addEventListener(
+"keydown",
+function(event){
 
-document.addEventListener("keydown",function(e){
+    if(event.key==="Escape"){
 
-    if(e.key === "Escape"){
+        document.getElementById(
+            "modalFoto"
+        ).classList.remove("ativo");
 
-        document
-            .getElementById("modalFoto")
-            .classList.remove("ativo");
+        document.getElementById(
+            "vitoria"
+        ).classList.remove("ativo");
 
-        document
-            .getElementById("vitoria")
-            .classList.remove("ativa");
     }
 
 });
 
 
-/* =========================================
+/* =========================
    LEAFEON
-========================================= */
+========================= */
 
 function mensagemLeafeon(){
 
-    const mensagens = [
-
-        "🌿 Leafeon: Oi! Que bom ver vocês aqui!",
-
-        "🍃 Leafeon: A floresta fica mais bonita quando vocês aparecem.",
-
-        "✨ Leafeon: Nunca parem de imaginar coisas incríveis!",
-
-        "💚 Leafeon: Vocês são minhas amigas especiais!",
-
-        "🌱 Leafeon: Uma pequena aventura pode virar uma grande memória."
+    const mensagens=[
+        "Leafeon diz: Você é muito especial! 🌿",
+        "Leafeon encontrou uma folha mágica! 🍃",
+        "Leafeon mandou um abraço! 💚",
+        "A floresta está feliz com você! 🌳",
+        "Você ganhou uma estrela da floresta! ⭐"
     ];
 
-    const texto =
-        mensagens[
-            Math.floor(
-                Math.random()*mensagens.length
-            )
-        ];
+    const mensagem =
+    mensagens[
+        Math.floor(
+            Math.random()*mensagens.length
+        )
+    ];
 
     document.getElementById(
-        "mensagemLeafeonTexto"
-    ).textContent = texto;
+        "leafeonMensagem"
+    ).textContent=mensagem;
 
-    ganharEstrela(1);
+    adicionarEstrelas(1);
+
 }
 
 
-/* =========================================
+/* =========================
    FLURRY
-========================================= */
+========================= */
 
 function magiaFlurry(simbolo){
 
-    const mensagens = {
-
-        "✨":"✨ Uma magia brilhante apareceu!",
-
-        "🌈":"🌈 Um arco-íris mágico surgiu!",
-
-        "💖":"💖 O castelo ficou cheio de amor!",
-
-        "⭐":"⭐ Uma estrela caiu do céu!",
-
-        "🦄":"🦄 Flurry Heart lançou uma magia especial!"
-    };
+    const mensagens=[
+        "✨ A magia funcionou!",
+        "🌈 Um arco-íris apareceu!",
+        "💖 Flurry ficou muito feliz!",
+        "⭐ Uma estrela mágica apareceu!",
+        "🦄 A magia do castelo está brilhando!"
+    ];
 
     document.getElementById(
-        "mensagemFlurry"
-    ).textContent =
-        mensagens[simbolo] || "✨ Magia ativada!";
+        "flurryMensagem"
+    ).textContent=
+    simbolo+" "+
+    mensagens[
+        Math.floor(
+            Math.random()*mensagens.length
+        )
+    ];
 
-    criarConfetes();
+    adicionarEstrelas(1);
 
-    ganharEstrela(1);
 }
 
 
-/* =========================================
+/* =========================
    CASA MÁGICA
-========================================= */
+========================= */
 
-const mensagensGabby = {
+const mensagensGabby={
 
     cakey:
-        "🍰 Cakey está preparando uma coisa deliciosa!",
+    "🍰 Cakey preparou um bolo delicioso!",
 
     kitty:
-        "🧚 Kitty Fairy está espalhando magia!",
+    "🧚 Kitty Fairy espalhou magia pelo quarto!",
 
     dj:
-        "🎧 DJ Catnip colocou a música para tocar!",
+    "🎧 DJ Catnip colocou uma música para tocar!",
 
     mercat:
-        "🧜‍♀️ MerCat está cuidando de tudo!",
+    "🧜 MerCat fez uma poção brilhante!",
 
     baby:
-        "🎀 Baby Box mandou um abraço!",
+    "📦 Baby Box encontrou uma surpresa!",
 
     carlita:
-        "🚗 Carlita está pronta para uma aventura!",
+    "🚗 Carlita está pronta para passear!",
 
     catrat:
-        "🐱 CatRat está aprontando alguma coisa!",
+    "🐱 CatRat apareceu sorrateiramente!",
 
     gabby:
-        "🌸 Gabby está muito feliz em receber vocês!"
+    "🌸 Gabby preparou uma aventura especial!"
 };
 
-
-function comodoGabby(id){
+function comodoGabby(nome){
 
     document.getElementById(
-        "mensagemGabby"
-    ).textContent =
-        mensagensGabby[id] || "✨ Uma nova descoberta!";
+        "gabbyMensagem"
+    ).textContent=
+    mensagensGabby[nome];
 
-    if(!comodosGabby.includes(id)){
+    let visitados =
+    JSON.parse(
+        localStorage.getItem(
+            "comodosGabby"
+        ) || "[]"
+    );
 
-        comodosGabby.push(id);
+    if(!visitados.includes(nome)){
+
+        visitados.push(nome);
 
         localStorage.setItem(
             "comodosGabby",
-            JSON.stringify(comodosGabby)
+            JSON.stringify(visitados)
         );
 
-        casaVisitada = comodosGabby.length;
+        adicionarEstrelas(1);
 
-        localStorage.setItem(
-            "casaVisitada",
-            casaVisitada
-        );
+        if(visitados.length>=8){
 
-        ganharEstrela(1);
+            localStorage.setItem(
+                "casaVisitada",
+                "true"
+            );
 
-    }else{
+            mostrarVitoria(
+                "🏠 Você explorou toda a Casa Mágica!"
+            );
 
-        criarConfetes();
+        }
+
     }
 
-    atualizarMedalhas();
 }
 
 
-/* =========================================
+/* =========================
    MEMÓRIA
-========================================= */
+========================= */
 
-const imagensMemoria = [
+let primeiraCarta=null;
+let segundaCarta=null;
+let bloqueado=false;
+let pares=0;
+let tentativas=0;
+let memoriaInicializada=false;
+
+const imagensMemoria=[
 
     {
-        nome:"Lívia",
+        id:"livia",
         imagem:"IMG_3780.jpeg"
     },
 
     {
-        nome:"Ana",
+        id:"ana",
         imagem:"IMG_3782.jpeg"
     },
 
     {
-        nome:"Papai",
+        id:"pai",
         imagem:"IMG_3783.jpeg"
     },
 
     {
-        nome:"Mamãe",
+        id:"mae",
         imagem:"IMG_3784.jpeg"
     },
 
     {
-        nome:"Leafeon",
+        id:"leafeon",
         imagem:
         "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/470.png"
     },
 
     {
-        nome:"Gabby",
+        id:"gabby",
         imagem:
         "https://vignette.wikia.nocookie.net/better-together-crossover/images/3/33/Tumblr_oqrtdqxfH91tr6wqbo3_1280.png/revision/latest?cb=20200225030242"
     }
 
 ];
 
+function embaralhar(array){
 
-let cartasMemoria = [];
-let cartaAberta1 = null;
-let cartaAberta2 = null;
-let bloqueadoMemoria = false;
-let paresEncontrados = 0;
-let tentativas = 0;
+    return array
+    .map(valor=>({
+        valor,
+        ordem:Math.random()
+    }))
+    .sort(
+        (a,b)=>a.ordem-b.ordem
+    )
+    .map(
+        item=>item.valor
+    );
 
+}
 
 function novoJogoMemoria(){
 
-    const cartas =
-        imagensMemoria.flatMap((item,index)=>[
-
-            {
-                ...item,
-                id:index
-            },
-
-            {
-                ...item,
-                id:index
-            }
-
-        ]);
-
-    cartas.sort(
-        ()=>Math.random()-.5
-    );
-
-    cartasMemoria = cartas;
-
-    cartaAberta1 = null;
-    cartaAberta2 = null;
-
-    bloqueadoMemoria = false;
-
-    paresEncontrados = 0;
-    tentativas = 0;
+    primeiraCarta=null;
+    segundaCarta=null;
+    bloqueado=false;
+    pares=0;
+    tentativas=0;
+    memoriaInicializada=true;
 
     document.getElementById(
         "paresMemoria"
-    ).textContent = "0";
+    ).textContent="0";
 
     document.getElementById(
         "tentativasMemoria"
-    ).textContent = "0";
+    ).textContent="0";
 
     document.getElementById(
         "memoriaMensagem"
-    ).textContent = "";
+    ).textContent=
+    "Encontre os pares! 🧠";
 
-    const container =
-        document.getElementById("cartas");
+    const cartas=
+    document.getElementById("cartas");
 
-    container.innerHTML = "";
+    cartas.innerHTML="";
 
-    cartas.forEach((carta,index)=>{
+    let baralho=
+    embaralhar([
+        ...imagensMemoria,
+        ...imagensMemoria
+    ]);
 
-        const botao =
-            document.createElement("button");
+    baralho.forEach((item,index)=>{
 
-        botao.className = "carta";
+        const carta=
+        document.createElement("button");
 
-        botao.dataset.index = index;
+        carta.className="carta";
 
-        botao.innerHTML = `
+        carta.dataset.id=item.id;
 
-            <div class="carta-interna">
+        carta.innerHTML=`
 
-                <div class="carta-frente">
-                    ❓
-                </div>
+            <span class="verso">
+                ❓
+            </span>
 
-                <div class="carta-verso">
+            <span class="frente">
 
-                    <img
-                        src="${carta.imagem}"
-                        alt="${carta.nome}"
-                    >
+                <img
+                src="${item.imagem}"
+                alt="Carta">
 
-                </div>
-
-            </div>
-
+            </span>
         `;
 
-        botao.onclick =
-            ()=>virarCarta(botao,index);
+        carta.onclick=
+        ()=>virarCarta(carta);
 
-        container.appendChild(botao);
+        cartas.appendChild(carta);
 
     });
+
 }
 
-
-function virarCarta(elemento,index){
+function virarCarta(carta){
 
     if(
-        bloqueadoMemoria ||
-        elemento.classList.contains("virada") ||
-        elemento.classList.contains("encontrada")
+        bloqueado ||
+        carta.classList.contains("aberta") ||
+        carta.classList.contains("encontrada")
     ){
         return;
     }
 
-    elemento.classList.add("virada");
+    carta.classList.add("aberta");
 
-    if(!cartaAberta1){
+    if(!primeiraCarta){
 
-        cartaAberta1 = {
-            elemento,
-            index
-        };
-
+        primeiraCarta=carta;
         return;
+
     }
 
-    cartaAberta2 = {
-        elemento,
-        index
-    };
+    segundaCarta=carta;
+    bloqueado=true;
 
     tentativas++;
 
     document.getElementById(
         "tentativasMemoria"
-    ).textContent = tentativas;
+    ).textContent=tentativas;
 
-    const carta1 =
-        cartasMemoria[cartaAberta1.index];
+    if(
+        primeiraCarta.dataset.id ===
+        segundaCarta.dataset.id
+    ){
 
-    const carta2 =
-        cartasMemoria[cartaAberta2.index];
+        primeiraCarta.classList.add(
+            "encontrada"
+        );
 
-    bloqueadoMemoria = true;
+        segundaCarta.classList.add(
+            "encontrada"
+        );
 
-    if(carta1.id === carta2.id){
+        pares++;
 
-        setTimeout(()=>{
+        document.getElementById(
+            "paresMemoria"
+        ).textContent=pares;
 
-            cartaAberta1.elemento
-                .classList
-                .add("encontrada");
+        primeiraCarta=null;
+        segundaCarta=null;
+        bloqueado=false;
 
-            cartaAberta2.elemento
-                .classList
-                .add("encontrada");
+        if(pares===6){
 
-            paresEncontrados++;
+            localStorage.setItem(
+                "memoriaCompleta",
+                "true"
+            );
 
-            document.getElementById(
-                "paresMemoria"
-            ).textContent =
-                paresEncontrados;
+            adicionarEstrelas(3);
 
-            cartaAberta1 = null;
-            cartaAberta2 = null;
+            criarConfetes();
 
-            bloqueadoMemoria = false;
+            mostrarVitoria(
+                "🧠 Você encontrou todos os pares!"
+            );
 
-            if(paresEncontrados === 6){
-
-                memoriaCompleta = true;
-
-                localStorage.setItem(
-                    "memoriaCompleta",
-                    "true"
-                );
-
-                ganharEstrela(3);
-
-                criarConfetes();
-
-                document.getElementById(
-                    "memoriaMensagem"
-                ).textContent =
-                    "🎉 Vocês encontraram todos os pares!";
-
-                atualizarMedalhas();
-            }
-
-        },450);
+        }
 
     }else{
 
         setTimeout(()=>{
 
-            cartaAberta1.elemento
-                .classList
-                .remove("virada");
+            primeiraCarta.classList.remove(
+                "aberta"
+            );
 
-            cartaAberta2.elemento
-                .classList
-                .remove("virada");
+            segundaCarta.classList.remove(
+                "aberta"
+            );
 
-            cartaAberta1 = null;
-            cartaAberta2 = null;
+            primeiraCarta=null;
+            segundaCarta=null;
+            bloqueado=false;
 
-            bloqueadoMemoria = false;
-
-        },850);
+        },900);
 
     }
+
 }
 
 
-/* =========================================
+/* =========================
    COBRA
-========================================= */
+========================= */
 
-const canvas =
-    document.getElementById("snakeCanvas");
+const canvas=
+document.getElementById("snakeCanvas");
 
-const ctx =
-    canvas.getContext("2d");
+const ctx=
+canvas.getContext("2d");
 
-let snake = [];
-let comida = {};
-let direcao = "direita";
-let proximaDirecao = "direita";
-let intervaloSnake = null;
-let pontos = 0;
+let cobra=[];
+let comida={
+    x:150,
+    y:150
+};
 
+let direcao={
+    x:20,
+    y:0
+};
+
+let proximaDirecao={
+    x:20,
+    y:0
+};
+
+let jogoCobra=null;
+let pontos=0;
 
 function iniciarJogo(){
 
-    clearInterval(intervaloSnake);
+    clearInterval(jogoCobra);
 
-    snake = [
-
-        {x:140,y:140},
-        {x:120,y:140},
-        {x:100,y:140}
-
+    cobra=[
+        {
+            x:140,
+            y:140
+        },
+        {
+            x:120,
+            y:140
+        },
+        {
+            x:100,
+            y:140
+        }
     ];
 
-    direcao = "direita";
-    proximaDirecao = "direita";
+    direcao={
+        x:20,
+        y:0
+    };
 
-    pontos = 0;
+    proximaDirecao={
+        x:20,
+        y:0
+    };
 
-    atualizarPontuacao();
+    pontos=0;
 
-    gerarComida();
+    document.getElementById(
+        "pontuacao"
+    ).textContent="0";
 
-    desenharSnake();
+    colocarComida();
 
-    intervaloSnake =
-        setInterval(
-            moverSnake,
-            180
-        );
+    jogoCobra=
+    setInterval(
+        atualizarCobra,
+        180
+    );
+
 }
 
+function colocarComida(){
 
-function gerarComida(){
-
-    const tamanho = 20;
-
-    comida = {
-
+    comida={
         x:
         Math.floor(
-            Math.random() *
-            (canvas.width/tamanho)
-        ) * tamanho,
+            Math.random()*15
+        )*20,
 
         y:
         Math.floor(
-            Math.random() *
-            (canvas.height/tamanho)
-        ) * tamanho
-
+            Math.random()*15
+        )*20
     };
+
 }
 
+function atualizarCobra(){
 
-function moverSnake(){
+    direcao=proximaDirecao;
 
-    direcao = proximaDirecao;
-
-    const cabeca = {
-        ...snake[0]
+    const cabeca={
+        x:cobra[0].x+direcao.x,
+        y:cobra[0].y+direcao.y
     };
 
-    if(direcao === "cima"){
-        cabeca.y -= 20;
+    if(
+        cabeca.x<0 ||
+        cabeca.x>=300 ||
+        cabeca.y<0 ||
+        cabeca.y>=300
+    ){
+
+        fimCobra();
+        return;
+
     }
 
-    if(direcao === "baixo"){
-        cabeca.y += 20;
-    }
+    for(let i=0;i<cobra.length;i++){
 
-    if(direcao === "esquerda"){
-        cabeca.x -= 20;
-    }
+        if(
+            cobra[i].x===cabeca.x &&
+            cobra[i].y===cabeca.y
+        ){
 
-    if(direcao === "direita"){
-        cabeca.x += 20;
-    }
+            fimCobra();
+            return;
 
-    const bateuParede =
-        cabeca.x < 0 ||
-        cabeca.y < 0 ||
-        cabeca.x >= canvas.width ||
-        cabeca.y >= canvas.height;
-
-    const bateuCorpo =
-        snake.some(
-            parte =>
-                parte.x === cabeca.x &&
-                parte.y === cabeca.y
-        );
-
-    if(bateuParede || bateuCorpo){
-
-        clearInterval(intervaloSnake);
-
-        if(pontos >= 5){
-
-            cobraMedalha = true;
-
-            localStorage.setItem(
-                "cobraMedalha",
-                "true"
-            );
-
-            atualizarMedalhas();
         }
 
-        return;
     }
 
-    snake.unshift(cabeca);
+    cobra.unshift(cabeca);
 
     if(
-        cabeca.x === comida.x &&
-        cabeca.y === comida.y
+        cabeca.x===comida.x &&
+        cabeca.y===comida.y
     ){
 
         pontos++;
 
-        atualizarPontuacao();
+        document.getElementById(
+            "pontuacao"
+        ).textContent=pontos;
 
-        gerarComida();
+        colocarComida();
 
-        if(pontos >= 5 && !cobraMedalha){
-
-            cobraMedalha = true;
+        if(pontos>=5){
 
             localStorage.setItem(
                 "cobraMedalha",
                 "true"
             );
 
-            ganharEstrela(2);
+            adicionarEstrelas(2);
+
         }
 
     }else{
 
-        snake.pop();
+        cobra.pop();
+
     }
 
-    desenharSnake();
+    desenharCobra();
+
 }
 
+function desenharCobra(){
 
-function desenharSnake(){
-
-    ctx.fillStyle = "#050711";
+    ctx.fillStyle="#050608";
 
     ctx.fillRect(
         0,
         0,
-        canvas.width,
-        canvas.height
+        300,
+        300
     );
 
-    ctx.fillStyle = "#ff4f8b";
+    ctx.fillStyle="#ff6ac2";
 
-    ctx.beginPath();
-
-    ctx.arc(
-        comida.x+10,
-        comida.y+10,
-        8,
-        0,
-        Math.PI*2
+    ctx.fillRect(
+        comida.x,
+        comida.y,
+        18,
+        18
     );
 
-    ctx.fill();
+    ctx.fillStyle="#78ff9a";
 
-    snake.forEach((parte,index)=>{
-
-        ctx.fillStyle =
-            index === 0
-            ? "#79ffb0"
-            : "#39c77a";
+    cobra.forEach((parte,index)=>{
 
         ctx.fillRect(
-            parte.x+2,
-            parte.y+2,
-            16,
-            16
+            parte.x,
+            parte.y,
+            18,
+            18
         );
 
     });
+
 }
 
+function mudarDirecao(d){
 
-function mudarDirecao(nova){
+    if(d==="cima" && direcao.y!==20){
 
-    const opostas = {
-
-        cima:"baixo",
-        baixo:"cima",
-        esquerda:"direita",
-        direita:"esquerda"
-
-    };
-
-    if(opostas[nova] !== direcao){
-
-        proximaDirecao = nova;
-
-    }
-}
-
-
-function atualizarPontuacao(){
-
-    document.getElementById(
-        "pontuacao"
-    ).textContent = pontos;
-}
-
-
-document.addEventListener(
-    "keydown",
-    function(e){
-
-        const teclas = {
-
-            ArrowUp:"cima",
-            ArrowDown:"baixo",
-            ArrowLeft:"esquerda",
-            ArrowRight:"direita"
-
+        proximaDirecao={
+            x:0,
+            y:-20
         };
 
-        if(teclas[e.key]){
+    }
 
-            e.preventDefault();
+    if(d==="baixo" && direcao.y!==-20){
 
-            mudarDirecao(
-                teclas[e.key]
-            );
-        }
+        proximaDirecao={
+            x:0,
+            y:20
+        };
 
     }
-);
+
+    if(d==="esquerda" && direcao.x!==20){
+
+        proximaDirecao={
+            x:-20,
+            y:0
+        };
+
+    }
+
+    if(d==="direita" && direcao.x!==-20){
+
+        proximaDirecao={
+            x:20,
+            y:0
+        };
+
+    }
+
+}
+
+document.addEventListener(
+"keydown",
+function(event){
+
+    if(event.key==="ArrowUp")
+        mudarDirecao("cima");
+
+    if(event.key==="ArrowDown")
+        mudarDirecao("baixo");
+
+    if(event.key==="ArrowLeft")
+        mudarDirecao("esquerda");
+
+    if(event.key==="ArrowRight")
+        mudarDirecao("direita");
+
+});
+
+function fimCobra(){
+
+    clearInterval(jogoCobra);
+
+    document.getElementById(
+        "cobraMensagem"
+    ).textContent=
+    "🐍 Fim de jogo! Você fez "+
+    pontos+
+    " pontos.";
+
+}
 
 
-/* =========================================
-   BIBLIOTECA
-========================================= */
+/* =========================
+   LIVROS
+========================= */
 
 function registrarLivro(numero){
 
-    const chave =
-        "livro_" + numero;
+    const chave=
+    "livro_"+numero;
 
-    if(!localStorage.getItem(chave)){
+    if(
+        !localStorage.getItem(chave)
+    ){
 
         localStorage.setItem(
             chave,
             "true"
         );
 
-        livrosLidos++;
+        let total=0;
 
-        localStorage.setItem(
-            "livrosLidos",
-            livrosLidos
-        );
+        for(let i=1;i<=4;i++){
 
-        ganharEstrela(1);
+            if(
+                localStorage.getItem(
+                    "livro_"+i
+                )
+            ){
+                total++;
+            }
+
+        }
+
+        adicionarEstrelas(1);
+
     }
 
-    atualizarMedalhas();
 }
 
 
-/* =========================================
+/* =========================
    MEDALHAS
-========================================= */
+========================= */
+
+function medalha(id,condicao){
+
+    const elemento=
+    document.getElementById(id);
+
+    if(condicao){
+
+        elemento.classList.remove(
+            "bloqueada"
+        );
+
+        return true;
+
+    }
+
+    elemento.classList.add(
+        "bloqueada"
+    );
+
+    return false;
+
+}
 
 function atualizarMedalhas(){
 
-    const medalhas = [
+    let desbloqueadas=0;
 
-        {
-            id:"medalhaLivro",
-            ativa:livrosLidos >= 4
-        },
+    let livros=0;
 
-        {
-            id:"medalhaEstrela",
-            ativa:estrelas >= 10
-        },
+    for(let i=1;i<=4;i++){
 
-        {
-            id:"medalhaCobra",
-            ativa:cobraMedalha
-        },
-
-        {
-            id:"medalhaMundo",
-            ativa:mapaExplorado
-        },
-
-        {
-            id:"medalhaMemoria",
-            ativa:memoriaCompleta
-        },
-
-        {
-            id:"medalhaFamilia",
-            ativa:familiaVisitada
-        },
-
-        {
-            id:"medalhaCasa",
-            ativa:casaVisitada >= 8
+        if(
+            localStorage.getItem(
+                "livro_"+i
+            )
+        ){
+            livros++;
         }
 
-    ];
-
-    let conquistadas = 0;
-
-    medalhas.forEach(medalha=>{
-
-        const elemento =
-            document.getElementById(
-                medalha.id
-            );
-
-        if(!elemento) return;
-
-        if(medalha.ativa){
-
-            elemento.classList.add(
-                "conquistada"
-            );
-
-            conquistadas++;
-
-        }else{
-
-            elemento.classList.remove(
-                "conquistada"
-            );
-        }
-
-    });
-
-    const progresso =
-        document.getElementById(
-            "progressoMedalhas"
-        );
-
-    if(progresso){
-        progresso.textContent =
-            conquistadas;
     }
 
-    const medalhasInicio =
-        document.getElementById(
-            "medalhasInicio"
-        );
-
-    if(medalhasInicio){
-        medalhasInicio.textContent =
-            conquistadas;
+    if(
+        medalha(
+            "medalhaLivro",
+            livros>=4
+        )
+    ){
+        desbloqueadas++;
     }
+
+    if(
+        medalha(
+            "medalhaEstrela",
+            numeroEstrelas()>=10
+        )
+    ){
+        desbloqueadas++;
+    }
+
+    if(
+        medalha(
+            "medalhaCobra",
+            localStorage.getItem(
+                "cobraMedalha"
+            )
+        )
+    ){
+        desbloqueadas++;
+    }
+
+    if(
+        medalha(
+            "medalhaMundo",
+            localStorage.getItem(
+                "mapaExplorado"
+            )
+        )
+    ){
+        desbloqueadas++;
+    }
+
+    if(
+        medalha(
+            "medalhaMemoria",
+            localStorage.getItem(
+                "memoriaCompleta"
+            )
+        )
+    ){
+        desbloqueadas++;
+    }
+
+    if(
+        medalha(
+            "medalhaFamilia",
+            localStorage.getItem(
+                "familiaVisitada"
+            )
+        )
+    ){
+        desbloqueadas++;
+    }
+
+    let comodos=
+    JSON.parse(
+        localStorage.getItem(
+            "comodosGabby"
+        ) || "[]"
+    );
+
+    if(
+        medalha(
+            "medalhaCasa",
+            comodos.length>=8
+        )
+    ){
+        desbloqueadas++;
+    }
+
+    document.getElementById(
+        "progressoMedalhas"
+    ).textContent=
+    desbloqueadas+" / 7";
+
+    document.getElementById(
+        "barraMedalhas"
+    ).style.width=
+    ((desbloqueadas/7)*100)+"%";
+
+    document.getElementById(
+        "medalhasInicio"
+    ).textContent=
+    desbloqueadas;
+
 }
 
 
-/* =========================================
+/* =========================
    BAÚ
-========================================= */
+========================= */
 
 function abrirMensagemBau(){
 
     document.getElementById(
         "mensagemBau"
-    ).innerHTML = `
+    ).textContent=
+    "💖 Lívia e Ana, este mundo foi feito para guardar um pouquinho da infância de vocês. Que nunca faltem brincadeiras, sonhos e momentos juntas. Com amor, Papai e Mamãe. ❤️";
 
-        💌 <strong>Para Lívia e Ana:</strong>
+    adicionarEstrelas(1);
 
-        <br><br>
-
-        Um dia vocês vão crescer.
-
-        <br><br>
-
-        Talvez esqueçam algumas brincadeiras,
-        alguns desenhos e algumas músicas...
-
-        <br><br>
-
-        Mas espero que nunca esqueçam
-        que o papai criou este pequeno mundo
-        pensando em vocês.
-
-        <br><br>
-
-        ❤️ Com amor, Papai.
-
-    `;
-
-    criarConfetes();
 }
 
 
-/* =========================================
+/* =========================
    VITÓRIA
-========================================= */
+========================= */
 
 function mostrarVitoria(texto){
 
     document.getElementById(
         "textoVitoria"
-    ).textContent = texto;
+    ).textContent=texto;
 
-    document
-        .getElementById("vitoria")
-        .classList.add("ativa");
+    document.getElementById(
+        "vitoria"
+    ).classList.add("ativo");
+
 }
-
 
 function fecharVitoria(){
 
-    document
-        .getElementById("vitoria")
-        .classList.remove("ativa");
+    document.getElementById(
+        "vitoria"
+    ).classList.remove("ativo");
 
 }
 
 
-/* =========================================
+/* =========================
    CONFETES
-========================================= */
+========================= */
 
 function criarConfetes(){
 
-    const quantidade = 45;
+    for(let i=0;i<70;i++){
 
-    for(let i=0;i<quantidade;i++){
+        const confete=
+        document.createElement("div");
 
-        const confete =
-            document.createElement("div");
+        confete.className="confete";
 
-        confete.className = "confete";
+        confete.style.left=
+        Math.random()*100+"vw";
 
-        confete.style.left =
-            Math.random()*100 + "vw";
+        confete.style.animationDelay=
+        Math.random()*1.5+"s";
 
-        confete.style.animationDelay =
-            Math.random()*1.5 + "s";
-
-        confete.style.transform =
-            `rotate(${Math.random()*360}deg)`;
-
-        const cores = [
-            "#ff5c8a",
-            "#ffd84d",
-            "#65d9ff",
-            "#9d70ff",
-            "#67f5a4",
-            "#ffffff"
+        confete.style.background=
+        [
+            "#ff65bd",
+            "#8e70ff",
+            "#67d9ff",
+            "#ffe16b",
+            "#78ff9a"
+        ][
+            Math.floor(
+                Math.random()*5
+            )
         ];
 
-        confete.style.background =
-            cores[
-                Math.floor(
-                    Math.random()*cores.length
-                )
-            ];
-
-        document.body.appendChild(confete);
-
-        setTimeout(
-            ()=>confete.remove(),
-            4000
+        document.body.appendChild(
+            confete
         );
+
+        setTimeout(()=>{
+
+            confete.remove();
+
+        },3500);
+
     }
+
 }
 
 
-/* =========================================
-   RÁDIO
-========================================= */
-
-/*
-   Os players são carregados somente quando
-   a menina aperta "Tocar".
-*/
-
-const radioVideos = {
-
-    /*
-       Vídeo oficial/localizado da versão
-       "Dubidubidu" da Christell.
-    */
-
-    ana:"IgErW2OY3Ws",
-
-    /*
-       Para a música da Lívia usamos uma
-       busca do YouTube, pois há diferentes
-       uploads/covers da versão.
-    */
-
-    livia:null
-
-};
-
-
-function tocarRadio(tipo){
-
-    const player =
-        document.getElementById(
-            "playerRadio"
-        );
-
-    const agora =
-        document.getElementById(
-            "radioAgora"
-        );
-
-
-    if(tipo === "ana"){
-
-        player.src =
-            "https://www.youtube.com/embed/" +
-            radioVideos.ana +
-            "?autoplay=1&rel=0";
-
-        agora.textContent =
-            "🎵 Tocando: Dubidubidu — Christell 💗";
-
-        return;
-    }
-
-
-    if(tipo === "livia"){
-
-        /*
-          Como não foi possível confirmar com
-          segurança um único ID atual do vídeo
-          do Miura Jam, abrimos a busca oficial
-          do YouTube em vez de apontar para um
-          vídeo possivelmente errado.
-        */
-
-        window.open(
-            "https://www.youtube.com/results?search_query=" +
-            encodeURIComponent(
-                "Miura Jam Naruto Shippuden Abertura 3 Português Se desse pra voar"
-            ),
-            "_blank"
-        );
-
-        agora.textContent =
-            "🎵 Procurando a música da Lívia no YouTube 💜";
-    }
-}
-
-
-function abrirYoutube(tipo){
-
-    if(tipo === "ana"){
-
-        window.open(
-            "https://www.youtube.com/watch?v=IgErW2OY3Ws",
-            "_blank"
-        );
-
-        return;
-    }
-
-
-    if(tipo === "livia"){
-
-        window.open(
-            "https://www.youtube.com/results?search_query=" +
-            encodeURIComponent(
-                "Miura Jam Naruto Shippuden Abertura 3 Português Se desse pra voar"
-            ),
-            "_blank"
-        );
-    }
-}
-
-
-/* =========================================
+/* =========================
    INICIALIZAÇÃO
-========================================= */
+========================= */
 
-atualizarInterface();
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function(){
-
-        atualizarInterface();
-
-    }
-);
+atualizarStatus();
+atualizarMedalhas();
 
 </script>
 
