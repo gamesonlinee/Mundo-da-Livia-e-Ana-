@@ -511,6 +511,27 @@ body{
     margin-top:20px;
 }
 
+.radio-grupo{
+    margin-bottom:20px;
+}
+
+.radio-grupo:last-child{
+    margin-bottom:0;
+}
+
+.radio-grupo-titulo{
+    text-align:center;
+    font-size:1.35rem;
+    margin-bottom:6px;
+}
+
+.radio-grupo-subtitulo{
+    text-align:center;
+    color:#aaaabd;
+    font-size:14px;
+    margin-bottom:14px;
+}
+
 .musica{
     width:100%;
     border:1px solid rgba(255,255,255,.12);
@@ -529,6 +550,10 @@ body{
 .musica:hover{
     transform:translateY(-3px);
     background:rgba(255,255,255,.11);
+}
+
+.musica:active{
+    transform:scale(.98);
 }
 
 .musica.ativa{
@@ -579,6 +604,7 @@ body{
     margin-bottom:15px;
     color:#f7c8eb;
     font-weight:bold;
+    min-height:20px;
 }
 
 .player-video{
@@ -726,6 +752,10 @@ body{
     .musica-info small{
         font-size:12px;
     }
+
+    .radio-grupo-titulo{
+        font-size:1.2rem;
+    }
 }
 </style>
 </head>
@@ -872,7 +902,17 @@ Escolha uma aventura!
 As músicas favoritas das meninas 💕
 </p>
 
-<div class="painel">
+
+<!-- RÁDIO DA LÍVIA -->
+<div class="painel radio-grupo">
+
+<h3 class="radio-grupo-titulo">
+💜 Rádio da Lívia
+</h3>
+
+<p class="radio-grupo-subtitulo">
+As músicas favoritas da Lívia 🎶
+</p>
 
 <div class="radio-lista">
 
@@ -905,7 +945,7 @@ class="musica"
 id="musicaNaruto"
 onclick="tocarRadio(
 'NVJevZGrU7E',
-'💜 Lívia — Naruto Shippuden / Blue Bird',
+'💜 Lívia — Naruto',
 'Se desse pra voar...'
 )"
 >
@@ -915,14 +955,31 @@ onclick="tocarRadio(
 </div>
 
 <div class="musica-info">
-<strong>Naruto Shippuden — Blue Bird</strong>
-<small>💜 “Se desse pra voar...” — Lívia</small>
+<strong>Naruto — Se desse pra voar...</strong>
+<small>🍥 Música da Lívia</small>
 </div>
 
 <span>▶️</span>
 
 </button>
 
+</div>
+
+</div>
+
+
+<!-- RÁDIO DA ANA -->
+<div class="painel radio-grupo">
+
+<h3 class="radio-grupo-titulo">
+💗 Rádio da Ana
+</h3>
+
+<p class="radio-grupo-subtitulo">
+As músicas favoritas da Ana 🎶
+</p>
+
+<div class="radio-lista">
 
 <button
 class="musica"
@@ -949,7 +1006,10 @@ onclick="tocarRadio(
 
 </div>
 
+</div>
 
+
+<!-- PLAYER -->
 <div class="radio-player-box">
 
 <div class="radio-agora" id="radioAgora">
@@ -966,9 +1026,7 @@ allowfullscreen>
 </iframe>
 
 <div class="radio-aviso">
-A música toca aqui mesmo, dentro da Rádio Lívia & Ana 💕
-</div>
-
+🎧 A música toca aqui mesmo, dentro da Rádio Lívia & Ana 💕
 </div>
 
 </div>
@@ -1835,10 +1893,18 @@ function tocarRadio(videoId,nome,subtitulo){
             player.src &&
             player.src.includes(videoId)
         ){
+
             player.src="";
+
             agora.textContent=
             "⏸️ Música pausada";
+
             musicaAtual="";
+
+            if(botaoAtivo){
+                botaoAtivo.classList.remove("ativa");
+            }
+
             return;
         }
 
@@ -1847,12 +1913,15 @@ function tocarRadio(videoId,nome,subtitulo){
     musicaAtual=videoId;
 
     agora.textContent=
-    nome+" • "+subtitulo;
+    "🎶 Agora tocando: "+
+    nome+
+    " • "+
+    subtitulo;
 
     player.src=
     "https://www.youtube.com/embed/"
     +videoId+
-    "?autoplay=1&rel=0";
+    "?autoplay=1&playsinline=1&rel=0";
 
 }
 
