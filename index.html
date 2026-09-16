@@ -318,16 +318,132 @@ p{line-height:1.55}
 
 /* cores dos portais */
 
-.card-menu:nth-child(1){background:linear-gradient(145deg,rgba(71,185,150,.2),rgba(75,89,180,.1))}
-.card-menu:nth-child(2){background:linear-gradient(145deg,rgba(75,195,128,.2),rgba(54,124,89,.08))}
-.card-menu:nth-child(3){background:linear-gradient(145deg,rgba(218,116,225,.2),rgba(95,105,218,.1))}
-.card-menu:nth-child(4){background:linear-gradient(145deg,rgba(255,124,190,.2),rgba(99,141,255,.1))}
-.card-menu:nth-child(5){background:linear-gradient(145deg,rgba(255,112,188,.18),rgba(116,102,255,.12))}
-.card-menu:nth-child(6){background:linear-gradient(145deg,rgba(64,201,129,.18),rgba(26,91,62,.1))}
-.card-menu:nth-child(7){background:linear-gradient(145deg,rgba(203,151,88,.2),rgba(74,41,27,.12))}
-.card-menu:nth-child(8){background:linear-gradient(145deg,rgba(255,111,170,.18),rgba(255,190,101,.08))}
-.card-menu:nth-child(9){background:linear-gradient(145deg,rgba(255,208,87,.18),rgba(226,119,83,.08))}
-.card-menu:nth-child(10){background:linear-gradient(145deg,rgba(105,87,55,.2),rgba(40,28,18,.12))}
+.card-menu:nth-child(1){background:linear-gradient(145deg,rgba(255,114,198,.24),rgba(111,92,255,.14))}
+.card-menu:nth-child(2){background:linear-gradient(145deg,rgba(255,183,91,.2),rgba(218,103,107,.1))}
+.card-menu:nth-child(3){background:linear-gradient(145deg,rgba(255,111,170,.18),rgba(255,190,101,.08))}
+.card-menu:nth-child(4){background:linear-gradient(145deg,rgba(203,151,88,.2),rgba(74,41,27,.12))}
+.card-menu:nth-child(5){background:linear-gradient(145deg,rgba(255,208,87,.18),rgba(226,119,83,.08))}
+.card-menu:nth-child(6){background:linear-gradient(145deg,rgba(105,87,55,.2),rgba(40,28,18,.12))}
+
+/* =========================
+   PASTA JOGOS
+========================= */
+
+.jogos-pasta{
+    max-width:1100px;
+    margin:10px auto 0;
+    padding:30px;
+    border-radius:42px;
+    background:
+        radial-gradient(circle at 15% 0%,rgba(255,114,198,.18),transparent 28%),
+        radial-gradient(circle at 90% 100%,rgba(89,200,255,.15),transparent 30%),
+        linear-gradient(145deg,rgba(255,255,255,.10),rgba(255,255,255,.035));
+    border:2px solid rgba(255,255,255,.14);
+    box-shadow:var(--sombra);
+    backdrop-filter:blur(12px);
+}
+
+.pasta-cabecalho{
+    text-align:center;
+    margin-bottom:28px;
+}
+
+.pasta-icone{
+    font-size:5rem;
+    display:block;
+    margin-bottom:5px;
+    filter:drop-shadow(0 12px 12px rgba(0,0,0,.3));
+    animation:flutuar 4s ease-in-out infinite;
+}
+
+.pasta-cabecalho h2{
+    margin:5px 0 8px;
+}
+
+.pasta-cabecalho p{
+    opacity:.7;
+}
+
+.jogos-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:16px;
+}
+
+.jogo-card{
+    position:relative;
+    min-height:180px;
+    padding:24px 15px;
+    border:none;
+    border-radius:28px;
+    color:#fff;
+    cursor:pointer;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.18);
+    box-shadow:
+        0 16px 30px rgba(0,0,0,.25),
+        inset 0 1px rgba(255,255,255,.2);
+    transition:.28s;
+}
+
+.jogo-card:before{
+    content:"";
+    position:absolute;
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    right:-45px;
+    top:-45px;
+    background:rgba(255,255,255,.12);
+}
+
+.jogo-card:hover{
+    transform:translateY(-8px) scale(1.025);
+    box-shadow:
+        0 24px 40px rgba(0,0,0,.35),
+        0 0 30px rgba(255,255,255,.08);
+}
+
+.jogo-card .jogo-icone{
+    display:block;
+    position:relative;
+    z-index:1;
+    font-size:3.2rem;
+    margin-bottom:14px;
+    filter:drop-shadow(0 7px 6px rgba(0,0,0,.25));
+}
+
+.jogo-card strong{
+    display:block;
+    position:relative;
+    z-index:1;
+    font-size:1.08rem;
+}
+
+.jogo-card small{
+    display:block;
+    position:relative;
+    z-index:1;
+    margin-top:7px;
+    opacity:.7;
+}
+
+.jogo-card:nth-child(1){background:linear-gradient(145deg,#357b69,#344d9a)}
+.jogo-card:nth-child(2){background:linear-gradient(145deg,#378b5c,#274f43)}
+.jogo-card:nth-child(3){background:linear-gradient(145deg,#8b5dbd,#5369c5)}
+.jogo-card:nth-child(4){background:linear-gradient(145deg,#ef79bc,#6876d9)}
+.jogo-card:nth-child(5){background:linear-gradient(145deg,#e87cae,#7168d8)}
+.jogo-card:nth-child(6){background:linear-gradient(145deg,#4c9d69,#24503a)}
+
+.pasta-rodape{
+    text-align:center;
+    margin-top:24px;
+    padding:15px;
+    border-radius:20px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.09);
+    opacity:.72;
+}
 
 /* =========================
    STATUS
@@ -1272,6 +1388,7 @@ canvas{
 @media(max-width:800px){
     .familia-grid{grid-template-columns:repeat(2,1fr)}
     .comodos{grid-template-columns:repeat(2,1fr)}
+    .jogos-grid{grid-template-columns:repeat(2,1fr)}
 }
 
 @media(max-width:700px){
@@ -1342,6 +1459,34 @@ canvas{
     .status-box{
         min-width:125px;
         padding:12px 16px;
+    }
+
+    .jogos-pasta{
+        padding:17px;
+        border-radius:30px;
+    }
+
+    .jogos-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+    }
+
+    .jogo-card{
+        min-height:155px;
+        padding:18px 9px;
+        border-radius:22px;
+    }
+
+    .jogo-card .jogo-icone{
+        font-size:2.5rem;
+    }
+
+    .jogo-card strong{
+        font-size:.92rem;
+    }
+
+    .jogo-card small{
+        font-size:.68rem;
     }
 
     .familia-box{
@@ -1428,6 +1573,14 @@ canvas{
     .local strong{font-size:.78rem}
 
     .local small{font-size:.62rem}
+
+    .jogos-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .jogo-card{
+        min-height:145px;
+    }
 }
 </style>
 </head>
@@ -1466,52 +1619,26 @@ Um pequeno mundo feito especialmente para vocês.
 
 <div class="menu">
 
-<button class="card-menu" onclick="abrir('mapa')">
-<span class="icone">🗺️</span>
-<strong>Mapa</strong>
-<small>Explorar o mundo</small>
+<!-- PASTA DOS JOGOS -->
+
+<button class="card-menu" onclick="abrir('jogos')">
+<span class="icone">🎮</span>
+<strong>Jogos Nossos</strong>
+<small>Entrar na nossa diversão</small>
 </button>
 
-<button class="card-menu" onclick="abrir('leafeon')">
-<span class="icone">🍃</span>
-<strong>Leafeon</strong>
-<small>Floresta mágica</small>
-</button>
+<!-- LEMBRANÇAS -->
 
-<button class="card-menu" onclick="abrir('flurry')">
-<span class="icone">🦄</span>
-<strong>Flurry Heart</strong>
-<small>Magia e estrelas</small>
-</button>
-
-<button class="card-menu" onclick="abrir('gabby')">
-<span class="icone">🏠</span>
-<strong>Mundo da Ana</strong>
-<small>Casa Mágica da Gabi</small>
-</button>
-
-<button class="card-menu" onclick="abrir('memoria')">
-<span class="icone">🧠</span>
-<strong>Jogo da Memória</strong>
-<small>Nossa família</small>
-</button>
-
-<button class="card-menu" onclick="abrir('cobra')">
-<span class="icone">🐍</span>
-<strong>Cobrinha</strong>
-<small>Jogar</small>
+<button class="card-menu" onclick="abrir('familia')">
+<span class="icone">❤️</span>
+<strong>Nossa Família</strong>
+<small>Lívia • Ana • Pai • Mãe</small>
 </button>
 
 <button class="card-menu" onclick="abrir('biblioteca')">
 <span class="icone">📚</span>
 <strong>Biblioteca</strong>
 <small>Nossas histórias</small>
-</button>
-
-<button class="card-menu" onclick="abrir('familia')">
-<span class="icone">❤️</span>
-<strong>Nossa Família</strong>
-<small>Lívia • Ana • Pai • Mãe</small>
 </button>
 
 <button class="card-menu" onclick="abrir('medalhas')">
@@ -1526,6 +1653,86 @@ Um pequeno mundo feito especialmente para vocês.
 <small>Um segredo...</small>
 </button>
 
+<button class="card-menu" onclick="abrir('mapa')">
+<span class="icone">🗺️</span>
+<strong>Mapa</strong>
+<small>Explorar o mundo</small>
+</button>
+
+</div>
+
+</div>
+</section>
+
+
+<!-- =====================================================
+     JOGOS NOSSOS
+===================================================== -->
+
+<section id="jogos" class="tela">
+<div class="container">
+
+<button class="voltar" onclick="abrir('inicio')">← VOLTAR</button>
+
+<div class="jogos-pasta">
+
+<div class="pasta-cabecalho">
+
+<span class="pasta-icone">🎮</span>
+
+<h2>Jogos Nossos</h2>
+
+<p>
+Uma pasta especial com todos os jogos e mundos
+que fizemos juntos. ❤️
+</p>
+
+</div>
+
+<div class="jogos-grid">
+
+<button class="jogo-card" onclick="abrir('mapa')">
+<span class="jogo-icone">🗺️</span>
+<strong>Mapa das Aventuras</strong>
+<small>Explore todos os mundos</small>
+</button>
+
+<button class="jogo-card" onclick="abrir('leafeon')">
+<span class="jogo-icone">🍃</span>
+<strong>Mundo do Leafeon</strong>
+<small>Floresta mágica</small>
+</button>
+
+<button class="jogo-card" onclick="abrir('flurry')">
+<span class="jogo-icone">🦄</span>
+<strong>Mundo da Flurry</strong>
+<small>Magia e estrelas</small>
+</button>
+
+<button class="jogo-card" onclick="abrir('gabby')">
+<span class="jogo-icone">🏠</span>
+<strong>Casa Mágica da Ana</strong>
+<small>Explore os cômodos</small>
+</button>
+
+<button class="jogo-card" onclick="abrir('memoria')">
+<span class="jogo-icone">🧠</span>
+<strong>Jogo da Memória</strong>
+<small>Encontre todos os pares</small>
+</button>
+
+<button class="jogo-card" onclick="abrir('cobra')">
+<span class="jogo-icone">🐍</span>
+<strong>Jogo da Cobrinha</strong>
+<small>Faça muitos pontos</small>
+</button>
+
+</div>
+
+<div class="pasta-rodape">
+✨ Nossos jogos, nossas aventuras e nossas histórias.
+</div>
+
 </div>
 </div>
 </section>
@@ -1538,7 +1745,7 @@ Um pequeno mundo feito especialmente para vocês.
 <section id="mapa" class="tela">
 <div class="container">
 
-<button class="voltar" onclick="abrir('inicio')">← VOLTAR</button>
+<button class="voltar" onclick="abrir('jogos')">← VOLTAR</button>
 
 <h2>🗺️ Mapa das Aventuras</h2>
 
@@ -1681,7 +1888,7 @@ Escolha um lugar para explorar.
 <section id="memoria" class="tela">
 <div class="container">
 
-<button class="voltar" onclick="abrir('inicio')">← VOLTAR</button>
+<button class="voltar" onclick="abrir('jogos')">← VOLTAR</button>
 
 <h2>🧠 Jogo da Memória</h2>
 
@@ -1729,7 +1936,7 @@ Encontre todos os pares da nossa família e dos mundos das meninas! ❤️
 <section id="leafeon" class="tela">
 <div class="container">
 
-<button class="voltar" onclick="abrir('inicio')">← VOLTAR</button>
+<button class="voltar" onclick="abrir('jogos')">← VOLTAR</button>
 
 <h2>🍃 Mundo do Leafeon</h2>
 
@@ -1763,7 +1970,7 @@ alt="Leafeon"
 <section id="flurry" class="tela">
 <div class="container">
 
-<button class="voltar" onclick="abrir('inicio')">← VOLTAR</button>
+<button class="voltar" onclick="abrir('jogos')">← VOLTAR</button>
 
 <h2>🦄 Mundo da Flurry Heart</h2>
 
@@ -1806,7 +2013,7 @@ Fazer magia!
 <section id="gabby" class="tela">
 <div class="container">
 
-<button class="voltar" onclick="abrir('inicio')">← VOLTAR</button>
+<button class="voltar" onclick="abrir('jogos')">← VOLTAR</button>
 
 <div class="gabby-casa">
 
@@ -1896,7 +2103,7 @@ Fazer magia!
 <section id="cobra" class="tela">
 <div class="container">
 
-<button class="voltar" onclick="abrir('inicio')">← VOLTAR</button>
+<button class="voltar" onclick="abrir('jogos')">← VOLTAR</button>
 
 <h2>🐍 Jogo da Cobrinha</h2>
 
