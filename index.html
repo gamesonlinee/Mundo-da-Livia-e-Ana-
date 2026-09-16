@@ -16,28 +16,15 @@
 }
 
 body{
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
     color:#fff;
     min-height:100vh;
     overflow-x:hidden;
 
     background:
-        radial-gradient(
-            circle at 20% 0%,
-            #7b5bb5 0%,
-            transparent 35%
-        ),
-        radial-gradient(
-            circle at 90% 20%,
-            #e979b9 0%,
-            transparent 30%
-        ),
-        linear-gradient(
-            145deg,
-            #160d27,
-            #291442,
-            #100b1b
-        );
+        radial-gradient(circle at 20% 0%,#7b5bb5 0%,transparent 35%),
+        radial-gradient(circle at 90% 20%,#e979b9 0%,transparent 30%),
+        linear-gradient(145deg,#160d27,#291442,#100b1b);
 }
 
 button{
@@ -56,17 +43,14 @@ button{
 }
 
 @keyframes entrada{
-
     from{
         opacity:0;
         transform:translateY(15px);
     }
-
     to{
         opacity:1;
         transform:translateY(0);
     }
-
 }
 
 .container{
@@ -108,15 +92,8 @@ p{
 }
 
 @keyframes pulsar{
-
-    0%,100%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.15);
-    }
-
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.15)}
 }
 
 
@@ -125,31 +102,18 @@ p{
 ========================= */
 
 .botao{
-
     border:none;
-
     padding:14px 24px;
-
     border-radius:30px;
-
     color:#fff;
-
     font-weight:bold;
-
     cursor:pointer;
 
     background:
-        linear-gradient(
-            135deg,
-            #ff75c9,
-            #8176ff
-        );
+        linear-gradient(135deg,#ff75c9,#8176ff);
 
-    box-shadow:
-        0 8px 22px rgba(0,0,0,.25);
-
+    box-shadow:0 8px 22px rgba(0,0,0,.25);
     transition:.2s;
-
 }
 
 .botao:hover{
@@ -160,24 +124,68 @@ p{
     transform:scale(.96);
 }
 
+
+/* BOTÃO VOLTAR MAIS VISÍVEL */
+
 .voltar{
 
-    display:block;
+    display:flex;
 
-    margin:5px auto 25px;
+    align-items:center;
 
-    padding:11px 21px;
+    justify-content:center;
+
+    gap:8px;
+
+    margin:0 auto 25px;
+
+    min-width:155px;
+
+    min-height:52px;
+
+    padding:13px 24px;
 
     border-radius:30px;
 
-    border:1px solid rgba(255,255,255,.15);
+    border:2px solid rgba(255,255,255,.35);
 
     color:#fff;
 
-    background:rgba(255,255,255,.09);
+    background:
+        linear-gradient(
+            135deg,
+            #ff5fbd,
+            #756cff
+        );
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.35),
+        0 0 15px rgba(255,105,190,.18);
 
     cursor:pointer;
 
+    font-size:1rem;
+
+    font-weight:800;
+
+    text-shadow:
+        0 1px 3px rgba(0,0,0,.35);
+
+    transition:.2s;
+
+}
+
+.voltar:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.4);
+
+}
+
+.voltar:active{
+    transform:scale(.96);
 }
 
 
@@ -190,15 +198,11 @@ p{
     display:grid;
 
     grid-template-columns:
-        repeat(
-            auto-fit,
-            minmax(155px,1fr)
-        );
+        repeat(auto-fit,minmax(155px,1fr));
 
     gap:15px;
 
     margin-top:25px;
-
 }
 
 .card-menu{
@@ -215,8 +219,7 @@ p{
 
     cursor:pointer;
 
-    background:
-        rgba(255,255,255,.09);
+    background:rgba(255,255,255,.09);
 
     border:
         1px solid
@@ -228,7 +231,6 @@ p{
     backdrop-filter:blur(10px);
 
     transition:.25s;
-
 }
 
 .card-menu:hover{
@@ -239,7 +241,6 @@ p{
 
     background:
         rgba(255,255,255,.15);
-
 }
 
 .card-menu .icone{
@@ -249,7 +250,6 @@ p{
     font-size:3rem;
 
     margin-bottom:12px;
-
 }
 
 .card-menu strong{
@@ -257,7 +257,6 @@ p{
     display:block;
 
     font-size:1.1rem;
-
 }
 
 .card-menu small{
@@ -267,7 +266,6 @@ p{
     opacity:.65;
 
     margin-top:7px;
-
 }
 
 
@@ -286,7 +284,6 @@ p{
     gap:12px;
 
     margin:20px auto 5px;
-
 }
 
 .status-box{
@@ -305,7 +302,6 @@ p{
     border:
         1px solid
         rgba(255,255,255,.12);
-
 }
 
 .status-box strong{
@@ -313,7 +309,6 @@ p{
     display:block;
 
     font-size:1.5rem;
-
 }
 
 .status-box span{
@@ -321,7 +316,6 @@ p{
     font-size:.8rem;
 
     opacity:.65;
-
 }
 
 
@@ -376,7 +370,6 @@ p{
             #334e78,
             #522c5d
         );
-
 }
 
 .mapa:before{
@@ -397,7 +390,6 @@ p{
     background-size:35px 35px;
 
     opacity:.25;
-
 }
 
 .local{
@@ -431,14 +423,10 @@ p{
         0 12px 30px rgba(0,0,0,.3);
 
     transition:.25s;
-
 }
 
 .local:hover{
-
-    transform:
-        scale(1.07);
-
+    transform:scale(1.07);
 }
 
 .local .emoji{
@@ -448,13 +436,10 @@ p{
     font-size:2.5rem;
 
     margin-bottom:5px;
-
 }
 
 .local strong{
-
     display:block;
-
 }
 
 .local small{
@@ -464,7 +449,6 @@ p{
     margin-top:4px;
 
     opacity:.65;
-
 }
 
 .local.leafeon{
@@ -487,6 +471,18 @@ p{
     bottom:10%;
 }
 
+.local.familia{
+    left:50%;
+    bottom:6%;
+    transform:translateX(-50%);
+}
+
+.local.familia:hover{
+    transform:
+        translateX(-50%)
+        scale(1.07);
+}
+
 .local.biblioteca{
 
     left:50%;
@@ -495,7 +491,6 @@ p{
 
     transform:
         translate(-50%,-50%);
-
 }
 
 .local.biblioteca:hover{
@@ -503,6 +498,170 @@ p{
     transform:
         translate(-50%,-50%)
         scale(1.07);
+}
+
+
+/* =========================
+   FAMÍLIA
+========================= */
+
+.familia-box{
+
+    max-width:950px;
+
+    margin:auto;
+
+    padding:25px;
+
+    border-radius:38px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,143,203,.18),
+            rgba(112,105,255,.15)
+        );
+
+    border:
+        2px solid
+        rgba(255,255,255,.13);
+
+    box-shadow:
+        0 25px 55px rgba(0,0,0,.35);
+
+}
+
+.familia-titulo{
+
+    text-align:center;
+
+    margin-bottom:10px;
+
+}
+
+.familia-subtitulo{
+
+    text-align:center;
+
+    opacity:.75;
+
+    margin-bottom:25px;
+
+}
+
+.familia-grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:18px;
+
+}
+
+.familiar{
+
+    position:relative;
+
+    overflow:hidden;
+
+    border-radius:27px;
+
+    background:
+        rgba(255,255,255,.09);
+
+    border:
+        2px solid
+        rgba(255,255,255,.13);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.3);
+
+    transition:.25s;
+
+}
+
+.familiar:hover{
+
+    transform:
+        translateY(-7px)
+        scale(1.02);
+
+}
+
+.familiar img{
+
+    display:block;
+
+    width:100%;
+
+    aspect-ratio:3/4;
+
+    object-fit:cover;
+
+}
+
+.familiar-nome{
+
+    padding:13px;
+
+    text-align:center;
+
+    font-size:1.15rem;
+
+    font-weight:bold;
+
+    background:
+        linear-gradient(
+            rgba(20,10,30,.1),
+            rgba(20,10,30,.8)
+        );
+
+}
+
+.familiar-emoji{
+
+    margin-right:5px;
+}
+
+.familia-frase{
+
+    text-align:center;
+
+    margin-top:25px;
+
+    padding:15px;
+
+    border-radius:20px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    font-size:1rem;
+
+    opacity:.9;
+
+}
+
+@media(max-width:700px){
+
+    .familia-grid{
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+}
+
+@media(max-width:400px){
+
+    .familia-grid{
+
+        grid-template-columns:1fr;
+
+    }
 
 }
 
@@ -529,7 +688,6 @@ p{
     border:
         1px solid
         rgba(255,255,255,.12);
-
 }
 
 .leafeon-img{
@@ -545,7 +703,6 @@ p{
             0 20px 25px
             rgba(0,0,0,.45)
         );
-
 }
 
 #mensagemLeafeon{
@@ -553,7 +710,6 @@ p{
     min-height:45px;
 
     margin:20px 0;
-
 }
 
 
@@ -579,7 +735,6 @@ p{
     border:
         1px solid
         rgba(255,255,255,.13);
-
 }
 
 .flurry-imagem{
@@ -595,7 +750,6 @@ p{
     margin:0 auto 20px;
 
     border-radius:25px;
-
 }
 
 .magias{
@@ -609,7 +763,6 @@ p{
     gap:10px;
 
     margin:20px 0;
-
 }
 
 .magias button{
@@ -630,7 +783,6 @@ p{
     font-size:1.7rem;
 
     cursor:pointer;
-
 }
 
 #flurryMensagem{
@@ -638,12 +790,11 @@ p{
     min-height:45px;
 
     margin:15px;
-
 }
 
 
 /* =================================================
-   CASA DA ANA — GABBY
+   CASA DA ANA
 ================================================= */
 
 .gabby-casa{
@@ -677,7 +828,6 @@ p{
     border:
         3px solid
         rgba(255,255,255,.18);
-
 }
 
 .gabby-topo{
@@ -685,7 +835,6 @@ p{
     text-align:center;
 
     padding:10px 10px 25px;
-
 }
 
 .gabby-logo{
@@ -702,23 +851,15 @@ p{
             0 8px 10px
             rgba(0,0,0,.25)
         );
-
 }
 
 .gabby-topo h2{
-
     margin:5px 0;
-
 }
 
 .gabby-topo p{
-
     opacity:.9;
-
 }
-
-
-/* TELHADO */
 
 .casa-telhado{
 
@@ -739,11 +880,7 @@ p{
     box-shadow:
         inset 0 -8px
         rgba(0,0,0,.12);
-
 }
-
-
-/* JANELAS */
 
 .casa-janelas{
 
@@ -754,7 +891,6 @@ p{
     gap:20px;
 
     margin:-5px 0 15px;
-
 }
 
 .janela{
@@ -779,24 +915,16 @@ p{
     box-shadow:
         0 8px 15px
         rgba(0,0,0,.2);
-
 }
-
-
-/* CÔMODOS */
 
 .comodos{
 
     display:grid;
 
     grid-template-columns:
-        repeat(
-            4,
-            1fr
-        );
+        repeat(4,1fr);
 
     gap:14px;
-
 }
 
 .comodo{
@@ -826,7 +954,6 @@ p{
         rgba(0,0,0,.2);
 
     transition:.25s;
-
 }
 
 .comodo:hover{
@@ -834,7 +961,6 @@ p{
     transform:
         translateY(-7px)
         rotate(-1deg);
-
 }
 
 .comodo .grande{
@@ -844,15 +970,11 @@ p{
     font-size:3.5rem;
 
     margin-bottom:10px;
-
 }
 
 .comodo strong{
-
     display:block;
-
     font-size:1rem;
-
 }
 
 .comodo small{
@@ -862,98 +984,78 @@ p{
     opacity:.8;
 
     margin-top:6px;
-
 }
 
-
-/* cores dos cômodos */
-
 .cozinha{
-
     background:
         linear-gradient(
             145deg,
             #ffb24e,
             #ed6b75
         );
-
 }
 
 .jardim{
-
     background:
         linear-gradient(
             145deg,
             #72d88b,
             #399e83
         );
-
 }
 
 .musica{
-
     background:
         linear-gradient(
             145deg,
             #756ce8,
             #d56ad8
         );
-
 }
 
 .ciencia{
-
     background:
         linear-gradient(
             145deg,
             #4fc8dd,
             #4773db
         );
-
 }
 
 .arte{
-
     background:
         linear-gradient(
             145deg,
             #ff8cbd,
             #8e72df
         );
-
 }
 
 .brincadeira{
-
     background:
         linear-gradient(
             145deg,
             #65d5e7,
             #4e8fe8
         );
-
 }
 
 .passagem{
-
     background:
         linear-gradient(
             145deg,
             #40364f,
             #16131f
         );
-
 }
 
 .quarto{
-
     background:
         linear-gradient(
             145deg,
             #a477e8,
             #ef8bc4
         );
-
 }
 
 .gabby-resposta{
@@ -967,7 +1069,6 @@ p{
     font-size:1.05rem;
 
     font-weight:bold;
-
 }
 
 
@@ -982,7 +1083,6 @@ p{
     margin:auto;
 
     text-align:center;
-
 }
 
 canvas{
@@ -1002,7 +1102,6 @@ canvas{
     border:
         3px solid
         rgba(255,255,255,.2);
-
 }
 
 #pontuacao{
@@ -1010,7 +1109,6 @@ canvas{
     font-size:1.2rem;
 
     font-weight:bold;
-
 }
 
 .controle-jogo{
@@ -1025,7 +1123,6 @@ canvas{
     gap:8px;
 
     margin-top:15px;
-
 }
 
 .controle-jogo button{
@@ -1044,13 +1141,10 @@ canvas{
     font-size:1.4rem;
 
     cursor:pointer;
-
 }
 
 .vazio{
-
     visibility:hidden;
-
 }
 
 
@@ -1063,7 +1157,6 @@ canvas{
     max-width:900px;
 
     margin:auto;
-
 }
 
 .estante{
@@ -1073,7 +1166,6 @@ canvas{
     border-radius:32px;
 
     background:
-
         linear-gradient(
             rgba(92,48,32,.9),
             rgba(45,23,17,.97)
@@ -1086,7 +1178,6 @@ canvas{
     box-shadow:
         0 20px 45px
         rgba(0,0,0,.35);
-
 }
 
 .livros{
@@ -1100,7 +1191,6 @@ canvas{
         );
 
     gap:28px;
-
 }
 
 .livro{
@@ -1114,7 +1204,6 @@ canvas{
     cursor:pointer;
 
     transition:.25s;
-
 }
 
 .livro:hover{
@@ -1122,7 +1211,6 @@ canvas{
     transform:
         translateY(-8px)
         rotate(-1deg);
-
 }
 
 .capa{
@@ -1149,7 +1237,6 @@ canvas{
     box-shadow:
         8px 8px 0 rgba(0,0,0,.2),
         0 15px 25px rgba(0,0,0,.3);
-
 }
 
 .capa span{
@@ -1157,7 +1244,6 @@ canvas{
     font-size:3.2rem;
 
     margin-bottom:14px;
-
 }
 
 .capa strong{
@@ -1165,7 +1251,6 @@ canvas{
     font-size:.92rem;
 
     line-height:1.25;
-
 }
 
 .livro:nth-child(1) .capa{
@@ -1176,7 +1261,6 @@ canvas{
             #f4c95d,
             #c87935
         );
-
 }
 
 .livro:nth-child(2) .capa{
@@ -1187,7 +1271,6 @@ canvas{
             #f7d36c,
             #c8a229
         );
-
 }
 
 .livro:nth-child(3) .capa{
@@ -1198,7 +1281,6 @@ canvas{
             #d99558,
             #8f4d29
         );
-
 }
 
 .livro:nth-child(4) .capa{
@@ -1209,7 +1291,6 @@ canvas{
             #8bcf83,
             #39744d
         );
-
 }
 
 .livro p{
@@ -1217,7 +1298,6 @@ canvas{
     margin-top:13px;
 
     font-weight:bold;
-
 }
 
 
@@ -1236,7 +1316,6 @@ canvas{
         );
 
     gap:15px;
-
 }
 
 .medalha{
@@ -1257,7 +1336,6 @@ canvas{
     opacity:.35;
 
     transition:.3s;
-
 }
 
 .medalha.desbloqueada{
@@ -1270,7 +1348,6 @@ canvas{
     box-shadow:
         0 10px 25px
         rgba(255,215,100,.15);
-
 }
 
 .medalha span{
@@ -1280,7 +1357,6 @@ canvas{
     font-size:3rem;
 
     margin-bottom:8px;
-
 }
 
 
@@ -1310,13 +1386,10 @@ canvas{
     border:
         2px solid
         rgba(255,215,120,.2);
-
 }
 
 .bau-icone{
-
     font-size:7rem;
-
 }
 
 #mensagemBau{
@@ -1324,7 +1397,6 @@ canvas{
     min-height:45px;
 
     margin-top:20px;
-
 }
 
 
@@ -1338,18 +1410,21 @@ canvas{
 
         grid-template-columns:
             repeat(2,1fr);
-
     }
 
     .mapa{
 
-        min-height:650px;
-
+        min-height:730px;
     }
 
     .local{
 
         width:125px;
+    }
+
+    .local.familia{
+
+        bottom:4%;
 
     }
 
@@ -1361,37 +1436,31 @@ canvas{
 
         grid-template-columns:
             repeat(2,1fr);
-
     }
 
     .card-menu{
 
         min-height:135px;
-
     }
 
     .card-menu .icone{
 
         font-size:2.5rem;
-
     }
 
     .comodo{
 
         min-height:155px;
-
     }
 
     .comodo .grande{
 
         font-size:2.8rem;
-
     }
 
     .mapa{
 
-        min-height:670px;
-
+        min-height:730px;
     }
 
     .local{
@@ -1399,7 +1468,15 @@ canvas{
         width:115px;
 
         min-height:95px;
+    }
 
+    .voltar{
+
+        min-width:170px;
+
+        min-height:56px;
+
+        font-size:1.05rem;
     }
 
 }
@@ -1409,7 +1486,6 @@ canvas{
     .menu{
 
         grid-template-columns:1fr;
-
     }
 
 }
@@ -1437,7 +1513,6 @@ canvas{
 Um pequeno mundo feito especialmente para vocês.
 </p>
 
-
 <div class="status">
 
 <div class="status-box">
@@ -1451,7 +1526,6 @@ Estrelas
 </span>
 
 </div>
-
 
 <div class="status-box">
 
@@ -1587,6 +1661,25 @@ Nossas histórias
 
 <button
 class="card-menu"
+onclick="abrir('familia')">
+
+<span class="icone">
+❤️
+</span>
+
+<strong>
+Nossa Família
+</strong>
+
+<small>
+Lívia • Ana • Pai • Mãe
+</small>
+
+</button>
+
+
+<button
+class="card-menu"
 onclick="abrir('medalhas')">
 
 <span class="icone">
@@ -1642,10 +1735,9 @@ Um segredo...
 class="voltar"
 onclick="abrir('inicio')">
 
-← Voltar
+← VOLTAR
 
 </button>
-
 
 <h2>
 🗺️ Mapa das Aventuras
@@ -1754,6 +1846,156 @@ Histórias mágicas
 </button>
 
 
+<button
+class="local familia"
+onclick="abrir('familia')">
+
+<span class="emoji">
+❤️
+</span>
+
+<strong>
+Nossa Família
+</strong>
+
+<small>
+Nosso lugar especial</small>
+
+</button>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ==================================================
+     FAMÍLIA
+================================================== -->
+
+<section id="familia" class="tela">
+
+<div class="container">
+
+<button
+class="voltar"
+onclick="abrir('inicio')">
+
+← VOLTAR
+
+</button>
+
+
+<div class="familia-box">
+
+<h2 class="familia-titulo">
+❤️ Nossa Família ❤️
+</h2>
+
+<p class="familia-subtitulo">
+O lugar mais importante de todo esse mundo.
+</p>
+
+
+<div class="familia-grid">
+
+
+<!-- LÍVIA -->
+
+<div class="familiar">
+
+<img
+src="IMG_3780.jpeg"
+alt="Lívia">
+
+<div class="familia-nome">
+
+<span class="familiar-emoji">
+👧
+</span>
+
+Lívia
+
+</div>
+
+</div>
+
+
+<!-- ANA -->
+
+<div class="familiar">
+
+<img
+src="IMG_3782.jpeg"
+alt="Ana">
+
+<div class="familia-nome">
+
+<span class="familiar-emoji">
+👧
+</span>
+
+Ana
+
+</div>
+
+</div>
+
+
+<!-- PAI -->
+
+<div class="familiar">
+
+<img
+src="IMG_3783.jpeg"
+alt="Pai">
+
+<div class="familia-nome">
+
+<span class="familiar-emoji">
+👨
+</span>
+
+Pai
+
+</div>
+
+</div>
+
+
+<!-- MÃE -->
+
+<div class="familiar">
+
+<img
+src="IMG_3784.jpeg"
+alt="Mãe">
+
+<div class="familia-nome">
+
+<span class="familiar-emoji">
+👩
+</span>
+
+Mãe
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="familia-frase">
+
+✨ Quatro pessoas, um só lar e muitas histórias para guardar para sempre. ❤️
+
+</div>
+
+
 </div>
 
 </div>
@@ -1773,7 +2015,7 @@ Histórias mágicas
 class="voltar"
 onclick="abrir('inicio')">
 
-← Voltar
+← VOLTAR
 
 </button>
 
@@ -1825,7 +2067,7 @@ onclick="mensagemLeafeon()">
 class="voltar"
 onclick="abrir('inicio')">
 
-← Voltar
+← VOLTAR
 
 </button>
 
@@ -1898,7 +2140,7 @@ Fazer magia!
 class="voltar"
 onclick="abrir('inicio')">
 
-← Voltar
+← VOLTAR
 
 </button>
 
@@ -1930,9 +2172,7 @@ Qual cômodo você quer visitar?
 <div class="casa-janelas">
 
 <div class="janela"></div>
-
 <div class="janela"></div>
-
 <div class="janela"></div>
 
 </div>
@@ -1940,8 +2180,6 @@ Qual cômodo você quer visitar?
 
 <div class="comodos">
 
-
-<!-- CAKEY -->
 
 <button
 class="comodo cozinha"
@@ -1962,8 +2200,6 @@ Bolos e confeitos
 </button>
 
 
-<!-- KITTY FAIRY -->
-
 <button
 class="comodo jardim"
 onclick="comodoGabby('kitty')">
@@ -1982,8 +2218,6 @@ Magia das flores
 
 </button>
 
-
-<!-- DJ -->
 
 <button
 class="comodo musica"
@@ -2004,8 +2238,6 @@ Música e dança
 </button>
 
 
-<!-- MERCAT -->
-
 <button
 class="comodo ciencia"
 onclick="comodoGabby('mercat')">
@@ -2024,8 +2256,6 @@ Ciência e cuidados
 
 </button>
 
-
-<!-- BABY BOX -->
 
 <button
 class="comodo arte"
@@ -2046,8 +2276,6 @@ Criar e inventar
 </button>
 
 
-<!-- CARLITA -->
-
 <button
 class="comodo brincadeira"
 onclick="comodoGabby('carlita')">
@@ -2067,8 +2295,6 @@ Corridas e diversão
 </button>
 
 
-<!-- CATRAT -->
-
 <button
 class="comodo passagem"
 onclick="comodoGabby('catrat')">
@@ -2087,8 +2313,6 @@ Onde está o brilho?
 
 </button>
 
-
-<!-- GABBY -->
 
 <button
 class="comodo quarto"
@@ -2140,7 +2364,7 @@ class="gabby-resposta">
 class="voltar"
 onclick="abrir('inicio')">
 
-← Voltar
+← VOLTAR
 
 </button>
 
@@ -2220,7 +2444,7 @@ onclick="iniciarJogo()">
 class="voltar"
 onclick="abrir('inicio')">
 
-← Voltar
+← VOLTAR
 
 </button>
 
@@ -2377,7 +2601,7 @@ opacity:.75;
 class="voltar"
 onclick="abrir('inicio')">
 
-← Voltar
+← VOLTAR
 
 </button>
 
@@ -2489,7 +2713,7 @@ Explorar o mapa
 class="voltar"
 onclick="abrir('inicio')">
 
-← Voltar
+← VOLTAR
 
 </button>
 
@@ -2573,9 +2797,7 @@ function abrir(id){
     });
 
     if(id === 'mapa'){
-
         registrarMapa();
-
     }
 
 }
@@ -2843,7 +3065,7 @@ function comodoGabby(tipo){
         "🏎️ Carlita está pronta para a corrida! Prepare-se... 3, 2, 1... VAI!",
 
         catrat:
-        "🔎 CatRat passou por uma passagem secreta! Ele deixou uma coisa brilhante escondida por aqui...", 
+        "🔎 CatRat passou por uma passagem secreta! Ele deixou uma coisa brilhante escondida por aqui...",
 
         gabby:
         "🌸 Gabby abriu a porta do quarto e encontrou uma surpresa para a Ana! ✨"
@@ -2876,9 +3098,7 @@ const canvas =
 const ctx =
     canvas.getContext('2d');
 
-
 const tamanho = 20;
-
 
 let cobra = [];
 
@@ -2894,9 +3114,6 @@ let pontuacao = 0;
 let jogoRodando = false;
 
 let intervalo = null;
-
-
-/* MAIS LENTA */
 
 const velocidade = 180;
 
@@ -2923,7 +3140,6 @@ function criarComida(){
 function iniciarJogo(){
 
     clearInterval(intervalo);
-
 
     cobra = [
 
@@ -3295,33 +3511,25 @@ document.addEventListener(
         if(
             event.key === "ArrowUp"
         )
-            mudarDirecao(
-                "cima"
-            );
+            mudarDirecao("cima");
 
 
         if(
             event.key === "ArrowDown"
         )
-            mudarDirecao(
-                "baixo"
-            );
+            mudarDirecao("baixo");
 
 
         if(
             event.key === "ArrowLeft"
         )
-            mudarDirecao(
-                "esquerda"
-            );
+            mudarDirecao("esquerda");
 
 
         if(
             event.key === "ArrowRight"
         )
-            mudarDirecao(
-                "direita"
-            );
+            mudarDirecao("direita");
 
     }
 );
