@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#17122b">
+<title>O Mundo da Lívia & Ana ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background:
+        radial-gradient(circle at top, #4d3975 0%, #21183b 38%, #0e0b19 100%);
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+button {
+    font-family: inherit;
+}
+
+.tela {
+    display: none;
+    min-height: 100vh;
+    padding: 25px 15px 50px;
+    animation: aparecer .5s ease;
+}
+
+.tela.ativa {
+    display: block;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    width: 100%;
+    max-width: 950px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: clamp(2rem, 7vw, 4rem);
+    margin: 25px 0 10px;
+}
+
+h2 {
+    text-align: center;
+    font-size: clamp(1.6rem, 5vw, 2.5rem);
+    margin: 15px 0;
+}
+
+.subtitulo {
+    text-align: center;
+    opacity: .85;
+    font-size: 1.05rem;
+    margin-bottom: 30px;
+}
+
+.coracao {
+    animation: pulsar 1.8s infinite;
+    display: inline-block;
+}
+
+@keyframes pulsar {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
+
+/* MENU */
+
+.menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.card-menu {
+    border: none;
+    border-radius: 24px;
+    padding: 25px 15px;
+    min-height: 155px;
+    color: white;
+    cursor: pointer;
+    background: rgba(255,255,255,.11);
+    border: 1px solid rgba(255,255,255,.14);
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    transition: .25s;
+    backdrop-filter: blur(8px);
+}
+
+.card-menu:hover {
+    transform: translateY(-6px) scale(1.02);
+    background: rgba(255,255,255,.17);
+}
+
+.card-menu:active {
+    transform: scale(.97);
+}
+
+.card-menu .icone {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.card-menu strong {
+    display: block;
+    font-size: 1.15rem;
+}
+
+.card-menu small {
+    display: block;
+    margin-top: 7px;
+    opacity: .75;
+}
+
+/* BOTÕES */
+
+.voltar {
+    display: block;
+    margin: 10px auto 25px;
+    padding: 12px 22px;
+    border: none;
+    border-radius: 30px;
+    background: rgba(255,255,255,.12);
+    color: white;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,.15);
+}
+
+.botao {
+    border: none;
+    padding: 14px 22px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #ff7ac8, #9b7cff);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(0,0,0,.25);
+    transition: .2s;
+}
+
+.botao:hover {
+    transform: translateY(-2px);
+}
+
+.centralizar {
+    text-align: center;
+}
+
+/* FLURRY */
+
+.flurry-box {
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+    padding: 25px;
+    border-radius: 30px;
+    background: rgba(255,255,255,.1);
+    border: 1px solid rgba(255,255,255,.15);
+}
+
+.flurry-imagem {
+    width: min(100%, 420px);
+    max-height: 330px;
+    object-fit: contain;
+    border-radius: 25px;
+    margin: 10px auto 20px;
+    display: block;
+}
+
+.magias {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.magias button {
+    border: none;
+    font-size: 1.7rem;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    cursor: pointer;
+    background: rgba(255,255,255,.15);
+    color: white;
+}
+
+#flurryMensagem {
+    min-height: 30px;
+    font-size: 1.1rem;
+    margin: 15px;
+}
+
+/* LEAFEON */
+
+.leafeon-box {
+    max-width: 700px;
+    margin: auto;
+    text-align: center;
+    background: rgba(255,255,255,.09);
+    padding: 25px;
+    border-radius: 30px;
+}
+
+.leafeon-img {
+    width: min(100%, 400px);
+    display: block;
+    margin: 0 auto 15px;
+    filter: drop-shadow(0 15px 20px rgba(0,0,0,.35));
+}
+
+#mensagemLeafeon {
+    min-height: 35px;
+    margin: 20px 0;
+    font-size: 1.1rem;
+}
+
+/* COBRINHA */
+
+.jogo-box {
+    text-align: center;
+    max-width: 500px;
+    margin: auto;
+}
+
+canvas {
+    background: #111;
+    border-radius: 18px;
+    border: 3px solid rgba(255,255,255,.25);
+    display: block;
+    width: min(90vw, 300px);
+    height: min(90vw, 300px);
+    margin: 20px auto;
+}
+
+.controle-jogo {
+    display: grid;
+    grid-template-columns: repeat(3, 65px);
+    justify-content: center;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.controle-jogo button {
+    height: 55px;
+    border: none;
+    border-radius: 15px;
+    background: rgba(255,255,255,.14);
+    color: white;
+    font-size: 1.4rem;
+}
+
+.vazio {
+    visibility: hidden;
+}
+
+#pontuacao {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* FAMÍLIA */
+
+.familia-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.pessoa {
+    background: rgba(255,255,255,.1);
+    border-radius: 25px;
+    padding: 25px 15px;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid rgba(255,255,255,.12);
+    transition: .25s;
+}
+
+.pessoa:hover {
+    transform: translateY(-5px);
+}
+
+.pessoa .emoji {
+    font-size: 4rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+#mensagemFamilia {
+    text-align: center;
+    min-height: 50px;
+    margin: 25px auto;
+    max-width: 700px;
+    font-size: 1.1rem;
+}
+
+/* BIBLIOTECA */
+
+.biblioteca-box {
+    max-width: 850px;
+    margin: auto;
+}
+
+.estante {
+    margin-top: 25px;
+    padding: 25px 15px 35px;
+    border-radius: 30px;
+    background:
+        linear-gradient(
+            rgba(92,48,32,.8),
+            rgba(48,25,20,.9)
+        );
+    box-shadow: 0 15px 40px rgba(0,0,0,.35);
+    border: 2px solid rgba(255,210,150,.15);
+}
+
+.livros {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 25px;
+    align-items: end;
+}
+
+.livro {
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.livro:hover {
+    transform: translateY(-8px);
+}
+
+.capa {
+    height: 210px;
+    border-radius: 8px 15px 15px 8px;
+    padding: 18px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(145deg, #f4c95d, #c87935);
+    box-shadow:
+        8px 8px 0 rgba(0,0,0,.2),
+        0 15px 25px rgba(0,0,0,.3);
+    border-left: 8px solid rgba(80,40,20,.35);
+}
+
+.capa span {
+    font-size: 3rem;
+    margin-bottom: 12px;
+}
+
+.capa strong {
+    font-size: .95rem;
+    line-height: 1.2;
+}
+
+.livro:nth-child(2) .capa {
+    background: linear-gradient(145deg, #f7d36c, #c8a229);
+}
+
+.livro:nth-child(3) .capa {
+    background: linear-gradient(145deg, #d99558, #8f4d29);
+}
+
+.livro:nth-child(4) .capa {
+    background: linear-gradient(145deg, #8bcf83, #39744d);
+}
+
+.livro p {
+    margin-top: 13px;
+    font-weight: bold;
+}
+
+.biblioteca-info {
+    text-align: center;
+    margin: 20px auto 5px;
+    opacity: .8;
+}
+
+/* SURPRESA */
+
+.surpresa {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 35px 25px;
+    text-align: center;
+    background: rgba(255,255,255,.1);
+    border-radius: 30px;
+    border: 1px solid rgba(255,255,255,.15);
+}
+
+.surpresa p {
+    line-height: 1.7;
+    margin: 15px 0;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 500px) {
+
+    .tela {
+        padding-top: 15px;
+    }
+
+    .card-menu {
+        min-height: 135px;
+        padding: 20px 10px;
+    }
+
+    .card-menu .icone {
+        font-size: 2.5rem;
+    }
+
+    .capa {
+        height: 190px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     INÍCIO
+========================= -->
+
+<section id="inicio" class="tela ativa">
+    <div class="container">
+
+        <h1>
+            🌈 O Mundo da Lívia & Ana
+            <span class="coracao">❤️</span>
+        </h1>
+
+        <p class="subtitulo">
+            Um cantinho especial feito pelo papai e pela mamãe.
+        </p>
+
+        <div class="menu">
+
+            <button class="card-menu" onclick="abrir('flurry')">
+                <span class="icone">🦄</span>
+                <strong>Mundo da Flurry</strong>
+                <small>Magia e aventuras</small>
+            </button>
+
+            <button class="card-menu" onclick="abrir('cobra')">
+                <span class="icone">🐍</span>
+                <strong>Cobrinha</strong>
+                <small>Jogue e faça pontos</small>
+            </button>
+
+            <button class="card-menu" onclick="abrir('leafeon')">
+                <span class="icone">🍃</span>
+                <strong>Mundo do Leafeon</strong>
+                <small>Uma aventura Pokémon</small>
+            </button>
+
+            <button class="card-menu" onclick="abrir('biblioteca')">
+                <span class="icone">📚</span>
+                <strong>Biblioteca</strong>
+                <small>Nossas histórias</small>
+            </button>
+
+            <button class="card-menu" onclick="abrir('familia')">
+                <span class="icone">👨‍👩‍👧‍👧</span>
+                <strong>Nossa Família</strong>
+                <small>Um lugar só nosso</small>
+            </button>
+
+            <button class="card-menu" onclick="abrir('surpresa')">
+                <span class="icone">🎁</span>
+                <strong>Surpresa</strong>
+                <small>Tem uma mensagem aqui...</small>
+            </button>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =========================
+     FLURRY
+========================= -->
+
+<section id="flurry" class="tela">
+    <div class="container">
+
+        <button class="voltar" onclick="abrir('inicio')">
+            ← Voltar
+        </button>
+
+        <h2>🦄 Mundo da Flurry Heart</h2>
+
+        <p class="subtitulo">
+            Um pouquinho de magia para começar a aventura ✨
+        </p>
+
+        <div class="flurry-box">
+
+            <img
+                class="flurry-imagem"
+                src="https://vignette.wikia.nocookie.net/better-together-crossover/images/3/33/Tumblr_oqrtdqxfH91tr6wqbo3_1280.png/revision/latest?cb=20200225030242"
+                alt="Flurry Heart"
+            >
+
+            <p>
+                A Flurry está esperando para descobrir
+                qual magia você vai escolher!
+            </p>
+
+            <div class="magias">
+
+                <button onclick="magiaFlurry('✨')">
+                    ✨
+                </button>
+
+                <button onclick="magiaFlurry('💖')">
+                    💖
+                </button>
+
+                <button onclick="magiaFlurry('🌈')">
+                    🌈
+                </button>
+
+                <button onclick="magiaFlurry('⭐')">
+                    ⭐
+                </button>
+
+            </div>
+
+            <button class="botao" onclick="magiaFlurry('🦄')">
+                Fazer magia!
+            </button>
+
+            <div id="flurryMensagem"></div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================
+     COBRINHA
+========================= -->
+
+<section id="cobra" class="tela">
+    <div class="container">
+
+        <button class="voltar" onclick="abrir('inicio')">
+            ← Voltar
+        </button>
+
+        <h2>🐍 Jogo da Cobrinha</h2>
+
+        <p class="subtitulo">
+            Pegue as frutas e tente fazer muitos pontos!
+        </p>
+
+        <div class="jogo-box">
+
+            <div id="pontuacao">
+                Pontos: 0
+            </div>
+
+            <canvas id="snakeCanvas" width="300" height="300"></canvas>
+
+            <button class="botao" onclick="iniciarJogo()">
+                ▶ Começar
+            </button>
+
+            <div class="controle-jogo">
+
+                <button class="vazio"></button>
+
+                <button onclick="mudarDirecao('cima')">
+                    ⬆️
+                </button>
+
+                <button class="vazio"></button>
+
+                <button onclick="mudarDirecao('esquerda')">
+                    ⬅️
+                </button>
+
+                <button onclick="mudarDirecao('baixo')">
+                    ⬇️
+                </button>
+
+                <button onclick="mudarDirecao('direita')">
+                    ➡️
+                </button>
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- =========================
+     LEAFEON
+========================= -->
+
+<section id="leafeon" class="tela">
+    <div class="container">
+
+        <button class="voltar" onclick="abrir('inicio')">
+            ← Voltar
+        </button>
+
+        <h2>🍃 Mundo do Leafeon</h2>
+
+        <p class="subtitulo">
+            O guardião da floresta está esperando por você.
+        </p>
+
+        <div class="leafeon-box">
+
+            <img
+                class="leafeon-img"
+                src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/470.png"
+                alt="Leafeon"
+            >
+
+            <button class="botao" onclick="mensagemLeafeon()">
+                🍃 Falar com Leafeon
+            </button>
+
+            <div id="mensagemLeafeon"></div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =========================
+     BIBLIOTECA
+========================= -->
+
+<section id="biblioteca" class="tela">
+    <div class="container">
+
+        <button class="voltar" onclick="abrir('inicio')">
+            ← Voltar
+        </button>
+
+        <h2>📚 Biblioteca da Família</h2>
+
+        <p class="subtitulo">
+            Histórias que nasceram da nossa imaginação ❤️
+        </p>
+
+        <div class="biblioteca-box">
+
+            <div class="estante">
+
+                <div class="livros">
+
+                    <a
+                        class="livro"
+                        href="https://gamesonlinee.github.io/Meu-site/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <div class="capa">
+                            <span>🐔</span>
+                            <strong>
+                                A Galinha e o<br>
+                                Pintinho Azulzinho
+                            </strong>
+                        </div>
+
+                        <p>📖 Ler história</p>
+                    </a>
+
+
+                    <a
+                        class="livro"
+                        href="https://gamesonlinee.github.io/Meu-site/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <div class="capa">
+                            <span>🐞</span>
+                            <strong>
+                                A Joaninha<br>
+                                Amarela
+                            </strong>
+                        </div>
+
+                        <p>📖 Ler história</p>
+                    </a>
+
+
+                    <a
+                        class="livro"
+                        href="https://gamesonlinee.github.io/Meu-site/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <div class="capa">
+                            <span>🥔</span>
+                            <strong>
+                                A Batata Risonha,<br>
+                                o Passarinho e<br>
+                                a Dona Aranha
+                            </strong>
+                        </div>
+
+                        <p>📖 Ler história</p>
+                    </a>
+
+
+                    <a
+                        class="livro"
+                        href="https://gamesonlinee.github.io/Meu-site/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <div class="capa">
+                            <span>🐾</span>
+                            <strong>
+                                Aramiau,<br>
+                                Codogue,<br>
+                                Stitch e Eevee
+                            </strong>
+                        </div>
+
+                        <p>📖 Ler história</p>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <p class="biblioteca-info">
+                💡 Novas histórias poderão ser adicionadas aqui.
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- =========================
+     FAMÍLIA
+========================= -->
+
+<section id="familia" class="tela">
+    <div class="container">
+
+        <button class="voltar" onclick="abrir('inicio')">
+            ← Voltar
+        </button>
+
+        <h2>👨‍👩‍👧‍👧 Nossa Família</h2>
+
+        <p class="subtitulo">
+            O lugar onde todas as aventuras começam ❤️
+        </p>
+
+        <div class="familia-grid">
+
+            <div class="pessoa" onclick="mensagem('papai')">
+                <span class="emoji">👨</span>
+                <strong>Papai</strong>
+            </div>
+
+            <div class="pessoa" onclick="mensagem('mamae')">
+                <span class="emoji">👩</span>
+                <strong>Mamãe</strong>
+            </div>
+
+            <div class="pessoa" onclick="mensagem('livia')">
+                <span class="emoji">👧</span>
+                <strong>Lívia</strong>
+            </div>
+
+            <div class="pessoa" onclick="mensagem('ana')">
+                <span class="emoji">👶</span>
+                <strong>Ana</strong>
+            </div>
+
+        </div>
+
+        <div id="mensagemFamilia"></div>
+
+    </div>
+</section>
+
+
+<!-- =========================
+     SURPRESA
+========================= -->
+
+<section id="surpresa" class="tela">
+    <div class="container">
+
+        <button class="voltar" onclick="abrir('inicio')">
+            ← Voltar
+        </button>
+
+        <div class="surpresa">
+
+            <h2>🎁 Uma surpresa...</h2>
+
+            <p>
+                Lívia, talvez você tenha achado que o papai
+                só estava olhando aqueles sites por curiosidade.
+            </p>
+
+            <p>
+                Mas o papai percebeu uma coisa:
+            </p>
+
+            <p>
+                🦄 Você tem coisas que ama.<br>
+                🐍 Você tem brincadeiras que gosta.<br>
+                🍃 Você tem mundos que fazem sua imaginação viajar.
+            </p>
+
+            <p>
+                E, principalmente...
+            </p>
+
+            <p>
+                👨‍👩‍👧‍👧 Você tem uma família que ama muito você.
+            </p>
+
+            <p>
+                Então o papai e a mamãe fizeram
+                um pequeno cantinho da internet só para vocês.
+            </p>
+
+            <p>
+                Porque agora esse mundo também é da Ana. ❤️
+            </p>
+
+            <p>
+                <strong>
+                    Com amor,<br>
+                    Papai e Mamãe ❤️
+                </strong>
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+
+<script>
+
+/* =========================
+   NAVEGAÇÃO
+========================= */
+
+function abrir(id) {
+
+    document.querySelectorAll('.tela').forEach(function(tela) {
+        tela.classList.remove('ativa');
+    });
+
+    document.getElementById(id).classList.add('ativa');
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+
+/* =========================
+   FLURRY
+========================= */
+
+function magiaFlurry(simbolo) {
+
+    const mensagens = [
+        "✨ A Flurry lançou uma magia brilhante!",
+        "💖 A magia do amor apareceu!",
+        "🌈 Um arco-íris mágico surgiu!",
+        "⭐ Você encontrou uma estrela mágica!",
+        "🦄 A Flurry está muito feliz com você!"
+    ];
+
+    const aleatoria =
+        mensagens[Math.floor(Math.random() * mensagens.length)];
+
+    document.getElementById('flurryMensagem').innerHTML =
+        simbolo + " " + aleatoria;
+}
+
+
+/* =========================
+   LEAFEON
+========================= */
+
+function mensagemLeafeon() {
+
+    const mensagens = [
+        "🍃 Leafeon encontrou uma folha mágica para você!",
+        "🌿 A floresta está feliz com a sua visita!",
+        "🍃 Leafeon diz: nunca pare de imaginar!",
+        "🌱 Uma nova aventura está começando!",
+        "💚 Leafeon mandou um abraço!"
+    ];
+
+    const aleatoria =
+        mensagens[Math.floor(Math.random() * mensagens.length)];
+
+    document.getElementById('mensagemLeafeon').innerHTML =
+        aleatoria;
+}
+
+
+/* =========================
+   FAMÍLIA
+========================= */
+
+function mensagem(pessoa) {
+
+    const mensagens = {
+
+        papai:
+        "👨 O papai fez este cantinho porque ama muito vocês.",
+
+        mamae:
+        "👩 A mamãe também faz parte de todas essas aventuras.",
+
+        livia:
+        "👧 A Lívia foi quem inspirou o começo dessa aventura. ❤️",
+
+        ana:
+        "👶 E a Ana agora também tem seu lugar nesse mundo. 🌸"
+
+    };
+
+    document.getElementById('mensagemFamilia').innerHTML =
+        mensagens[pessoa];
+}
+
+
+/* =========================
+   COBRINHA
+========================= */
+
+const canvas = document.getElementById('snakeCanvas');
+const ctx = canvas.getContext('2d');
+
+const tamanho = 20;
+
+let cobra = [];
+let comida = {};
+let direcao = "direita";
+let proximaDirecao = "direita";
+let pontuacao = 0;
+let jogoRodando = false;
+let intervalo = null;
+
+/*
+   180ms = mais devagar,
+   para ficar mais fácil para criança.
+*/
+const velocidade = 180;
+
+
+function criarComida() {
+
+    comida = {
+        x: Math.floor(Math.random() * 15) * tamanho,
+        y: Math.floor(Math.random() * 15) * tamanho
+    };
+
+}
+
+
+function iniciarJogo() {
+
+    clearInterval(intervalo);
+
+    cobra = [
+        { x: 140, y: 140 },
+        { x: 120, y: 140 },
+        { x: 100, y: 140 }
+    ];
+
+    direcao = "direita";
+    proximaDirecao = "direita";
+    pontuacao = 0;
+
+    document.getElementById('pontuacao').innerText =
+        "Pontos: 0";
+
+    criarComida();
+
+    jogoRodando = true;
+
+    desenhar();
+
+    intervalo = setInterval(atualizarJogo, velocidade);
+}
+
+
+function desenhar() {
+
+    ctx.fillStyle = "#101010";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    /* comida */
+
+    ctx.fillStyle = "#ff4f81";
+
+    ctx.beginPath();
+
+    ctx.arc(
+        comida.x + 10,
+        comida.y + 10,
+        8,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.fill();
+
+
+    /* cobra */
+
+    cobra.forEach(function(parte, index) {
+
+        ctx.fillStyle =
+            index === 0 ? "#7cff9b" : "#39c96b";
+
+        ctx.fillRect(
+            parte.x + 1,
+            parte.y + 1,
+            tamanho - 2,
+            tamanho - 2
+        );
+
+    });
+
+}
+
+
+function atualizarJogo() {
+
+    if (!jogoRodando) return;
+
+    direcao = proximaDirecao;
+
+    let cabeca = {
+        x: cobra[0].x,
+        y: cobra[0].y
+    };
+
+
+    if (direcao === "cima") {
+        cabeca.y -= tamanho;
+    }
+
+    if (direcao === "baixo") {
+        cabeca.y += tamanho;
+    }
+
+    if (direcao === "esquerda") {
+        cabeca.x -= tamanho;
+    }
+
+    if (direcao === "direita") {
+        cabeca.x += tamanho;
+    }
+
+
+    /* bateu na parede */
+
+    if (
+        cabeca.x < 0 ||
+        cabeca.x >= canvas.width ||
+        cabeca.y < 0 ||
+        cabeca.y >= canvas.height
+    ) {
+        fimDoJogo();
+        return;
+    }
+
+
+    /* bateu no próprio corpo */
+
+    for (let i = 0; i < cobra.length; i++) {
+
+        if (
+            cabeca.x === cobra[i].x &&
+            cabeca.y === cobra[i].y
+        ) {
+            fimDoJogo();
+            return;
+        }
+
+    }
+
+
+    cobra.unshift(cabeca);
+
+
+    /* pegou comida */
+
+    if (
+        cabeca.x === comida.x &&
+        cabeca.y === comida.y
+    ) {
+
+        pontuacao++;
+
+        document.getElementById('pontuacao').innerText =
+            "Pontos: " + pontuacao;
+
+        criarComida();
+
+    } else {
+
+        cobra.pop();
+
+    }
+
+    desenhar();
+}
+
+
+function fimDoJogo() {
+
+    jogoRodando = false;
+
+    clearInterval(intervalo);
+
+    setTimeout(function() {
+
+        alert(
+            "🐍 Fim de jogo!\n\n" +
+            "Você fez " +
+            pontuacao +
+            " ponto(s)! ❤️"
+        );
+
+    }, 100);
+
+}
+
+
+function mudarDirecao(novaDirecao) {
+
+    if (novaDirecao === "cima" && direcao !== "baixo") {
+        proximaDirecao = "cima";
+    }
+
+    if (novaDirecao === "baixo" && direcao !== "cima") {
+        proximaDirecao = "baixo";
+    }
+
+    if (novaDirecao === "esquerda" && direcao !== "direita") {
+        proximaDirecao = "esquerda";
+    }
+
+    if (novaDirecao === "direita" && direcao !== "esquerda") {
+        proximaDirecao = "direita";
+    }
+
+}
+
+
+/* =========================
+   TECLADO
+========================= */
+
+document.addEventListener('keydown', function(event) {
+
+    if (event.key === "ArrowUp") {
+        mudarDirecao("cima");
+    }
+
+    if (event.key === "ArrowDown") {
+        mudarDirecao("baixo");
+    }
+
+    if (event.key === "ArrowLeft") {
+        mudarDirecao("esquerda");
+    }
+
+    if (event.key === "ArrowRight") {
+        mudarDirecao("direita");
+    }
+
+});
+
+
+/* =========================
+   INICIALIZAÇÃO
+========================= */
+
+criarComida();
+desenhar();
+
+</script>
+
+</body>
+</html>
