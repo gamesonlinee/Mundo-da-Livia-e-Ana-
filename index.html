@@ -202,6 +202,25 @@ body{
     color:#bbb;
 }
 
+/* FOTO DA FAMÍLIA NA CAPA */
+
+.portal-familia{
+    padding:12px;
+    overflow:hidden;
+}
+
+.portal-familia-img{
+    width:78px;
+    height:78px;
+    border-radius:22px;
+    object-fit:cover;
+    display:block;
+    border:2px solid rgba(255,255,255,.28);
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.35),
+        0 0 20px rgba(255,130,210,.15);
+}
+
 .titulo{
     text-align:center;
     font-size:clamp(1.8rem,6vw,2.8rem);
@@ -730,6 +749,12 @@ body{
         min-height:115px;
     }
 
+    .portal-familia-img{
+        width:68px;
+        height:68px;
+        border-radius:19px;
+    }
+
     .cartas{
         gap:7px;
     }
@@ -764,6 +789,7 @@ body{
 
 <div class="estrelas" id="estrelas"></div>
 
+
 <!-- INÍCIO -->
 <section id="inicio" class="tela ativa">
 
@@ -794,17 +820,31 @@ Um pequeno mundo feito especialmente para vocês.
 <small>Vamos brincar!</small>
 </button>
 
+
 <button class="portal" onclick="abrir('radio')">
 <span class="emoji">🎧</span>
 <strong>Rádio</strong>
 <small>Músicas favoritas</small>
 </button>
 
-<button class="portal" onclick="abrir('familia')">
-<span class="emoji">👨‍👩‍👧‍👧</span>
-<strong>Nossa Família</strong>
+
+<!-- NOSSA FAMÍLIA COM FOTO -->
+
+<button
+class="portal portal-familia"
+onclick="abrir('familia')">
+
+<img
+class="portal-familia-img"
+src="IMG_3778.jpeg"
+alt="Nossa Família">
+
+<strong>👨‍👩‍👧‍👧 Nossa Família</strong>
+
 <small>Quem faz parte</small>
+
 </button>
+
 
 <button class="portal" onclick="abrir('biblioteca')">
 <span class="emoji">📚</span>
@@ -812,11 +852,13 @@ Um pequeno mundo feito especialmente para vocês.
 <small>Livros mágicos</small>
 </button>
 
+
 <button class="portal" onclick="abrir('medalhas')">
 <span class="emoji">🏆</span>
 <strong>Medalhas</strong>
 <small>Conquistas</small>
 </button>
+
 
 <button class="portal" onclick="abrir('bau')">
 <span class="emoji">🎁</span>
@@ -904,6 +946,7 @@ As músicas favoritas das meninas 💕
 
 
 <!-- RÁDIO DA LÍVIA -->
+
 <div class="painel radio-grupo">
 
 <h3 class="radio-grupo-titulo">
@@ -969,6 +1012,7 @@ onclick="tocarRadio(
 
 
 <!-- RÁDIO DA ANA -->
+
 <div class="painel radio-grupo">
 
 <h3 class="radio-grupo-titulo">
@@ -1010,6 +1054,7 @@ onclick="tocarRadio(
 
 
 <!-- PLAYER -->
+
 <div class="radio-player-box">
 
 <div class="radio-agora" id="radioAgora">
@@ -1037,6 +1082,7 @@ allowfullscreen>
 
 
 <!-- MAPA -->
+
 <section id="mapa" class="tela">
 
 <div class="container">
@@ -1098,6 +1144,7 @@ Explore todos os lugares!
 
 
 <!-- LEAFEON -->
+
 <section id="leafeon" class="tela">
 
 <div class="container">
@@ -1136,6 +1183,7 @@ onclick="mensagemLeafeon()">
 
 
 <!-- FLURRY -->
+
 <section id="flurry" class="tela">
 
 <div class="container">
@@ -1188,6 +1236,7 @@ Flurry está esperando sua magia...
 
 
 <!-- GABBY -->
+
 <section id="gabby" class="tela">
 
 <div class="container">
@@ -1260,6 +1309,7 @@ A casa está esperando você! 🏠
 
 
 <!-- MEMÓRIA -->
+
 <section id="memoria" class="tela">
 
 <div class="container">
@@ -1313,6 +1363,7 @@ onclick="novoJogoMemoria()">
 
 
 <!-- COBRA -->
+
 <section id="cobra" class="tela">
 
 <div class="container">
@@ -1388,6 +1439,7 @@ onclick="iniciarJogo()">
 
 
 <!-- FAMÍLIA -->
+
 <section id="familia" class="tela">
 
 <div class="container">
@@ -1463,6 +1515,7 @@ alt="Mamãe">
 
 
 <!-- BIBLIOTECA -->
+
 <section id="biblioteca" class="tela">
 
 <div class="container">
@@ -1550,6 +1603,7 @@ onclick="registrarLivro(4);window.open(
 
 
 <!-- MEDALHAS -->
+
 <section id="medalhas" class="tela">
 
 <div class="container">
@@ -1632,6 +1686,7 @@ Cada aventura deixa uma lembrança!
 
 
 <!-- BAÚ -->
+
 <section id="bau" class="tela">
 
 <div class="container">
@@ -1668,6 +1723,7 @@ onclick="abrirMensagemBau()">
 
 
 <!-- MODAL FOTO -->
+
 <div
 class="modal"
 id="modalFoto"
@@ -1697,6 +1753,7 @@ id="nomeFoto">
 
 
 <!-- VITÓRIA -->
+
 <div
 class="modal"
 id="vitoria">
